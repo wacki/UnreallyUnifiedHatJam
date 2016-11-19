@@ -13,6 +13,7 @@ namespace UU.GameHam
         public int playerIndex = 0;
 
         private Motor2D _motor;
+		private CombatController _combat;
 
 #if UNITY_EDITOR
         Vector3 _prevPosition;
@@ -20,8 +21,10 @@ namespace UU.GameHam
 
         void Awake()
         {
-            _motor = GetComponent<Motor2D>();
+			_combat = GetComponent<CombatController>();
+			_motor = GetComponent<Motor2D>();
             _prevPosition = transform.position;
+
         }
 
         void Update()
@@ -35,7 +38,8 @@ namespace UU.GameHam
             else if (GetButtonUp("Button0"))
                 _motor.StopJump();
 
-            
+			if (GetButtonDown ("Button1"))
+				_combat.Shoot ();
 
             _motor.Move(h, v);
 

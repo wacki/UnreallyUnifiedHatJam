@@ -333,6 +333,10 @@ namespace UU.GameHam {
             SetState(State.Falling);
         }
 
+		public bool IsFacingRight()
+		{
+			return _facingRight;
+		}
 
 
         private void WallCheck(Vector2 origin, Vector2 dir)
