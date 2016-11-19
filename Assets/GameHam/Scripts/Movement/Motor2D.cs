@@ -127,8 +127,6 @@ namespace UU.GameHam {
 
             _rb.velocity = vel;
 
-
-
             _jumpHoldTimer = 0.0f;
             _jumping = true;
             SetState(State.Jumping);

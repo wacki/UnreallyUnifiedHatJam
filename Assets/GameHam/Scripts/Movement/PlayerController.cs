@@ -41,6 +41,9 @@ namespace UU.GameHam
 			if (GetButtonDown ("Button1"))
 				_combat.Shoot ();
 
+			if (GetButtonDown ("Button2"))
+				_combat.Attack ();
+
             _motor.Move(h, v);
 
 
