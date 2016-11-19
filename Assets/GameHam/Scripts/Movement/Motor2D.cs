@@ -16,7 +16,9 @@ namespace UU.GameHam {
             Falling,    // falling
             Grounded,   // moving along the ground
             Walltouch,  // touching a wall while not grounded (wall slide, wall jump etc use this)
-            Climbing    // player is currently holding onto a wall
+            Climbing,    // player is currently holding onto a wall
+            Knockback
+
         };
 
         #region public editor fields
@@ -67,7 +69,10 @@ namespace UU.GameHam {
 
         [Tooltip("Wheather or not to reset air jumps after touching a wall")]
         public bool resetAirJumpsOnWallTouch = true;
-        
+
+        public float knockBackDuration = 0.5f;
+
+        public float knockbackStrength = 4;
 
         #endregion
 
@@ -89,6 +94,12 @@ namespace UU.GameHam {
         public void Move(float x, float y)
         {
             Move(new Vector2(x, y));
+        }
+
+        public void KnockBack(Vector2 dir)
+        {
+            SetState(State.Knockback);
+            _knockbackDir = dir.normalized;
         }
 
         /// <summary>
@@ -188,6 +199,9 @@ namespace UU.GameHam {
         private float _jumpHoldTimer;
 
         private LayerMask _layerMask;
+
+        private float _knockbackTimer;
+        private Vector2 _knockbackDir;
         
 
         class Climbable {
@@ -221,6 +235,18 @@ namespace UU.GameHam {
         /// </summary>
         private void Update()
         {
+            if(state == State.Knockback)
+            {
+                _knockbackTimer += Time.deltaTime;
+                
+                _rb.velocity = _knockbackDir * knockbackStrength;
+
+                if (_knockbackTimer > knockBackDuration)
+                    SetState(State.Falling);
+
+                return;
+            }
+
             // update any movement
             UpdateFacing();
 
@@ -471,8 +497,11 @@ namespace UU.GameHam {
                 case State.Climbing:
                     return;
                 case State.Walltouch:
-                    if(resetAirJumpsOnWallTouch)
+                    if (resetAirJumpsOnWallTouch)
                         ResetAirJumps();
+                    return;
+                case State.Knockback:
+                    _knockbackTimer = 0.0f;
                     return;
             }
         }

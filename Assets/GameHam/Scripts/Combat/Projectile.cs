@@ -12,7 +12,12 @@ namespace UU.GameHam
 		public float speed; // Projectile speed
 		[Tooltip("Type the string of the effect")]
 		public string effect; //String of effect
-		public bool facingRight; //Know where it's facing
+        
+        [Tooltip("projectile debuff that will be applied on hitting an enemy")]
+        public CharacterStatsModifier projectileDebuff;
+
+
+        public bool facingRight; //Know where it's facing
 
 		void Start ()
 		{
@@ -23,9 +28,13 @@ namespace UU.GameHam
 		}
 
 		void OnTriggerEnter2D(Collider2D other){
-			//If the object I collide with is a character
-			if (other.gameObject.GetComponent<CharacterStats> () != null) {
-				//affect player then
+
+            var cs = other.gameObject.GetComponent<CharacterStats>();
+            //If the object I collide with is a character
+            if (cs != null) {
+                //affect player then
+                cs.ApplyModifier(projectileDebuff);
+
 				Destroy (gameObject);
 			}
 

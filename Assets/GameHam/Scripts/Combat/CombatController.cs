@@ -15,7 +15,7 @@ namespace UU.GameHam
 		[Tooltip("Assign the cooldown time for melee attacks(60 = 1 minute)")]
 		public float initialMeleeCooldown = 0;
 
-		private float rangeCooldownCounter = 0;
+        private float rangeCooldownCounter = 0;
 		private float meleeCooldownCounter = 0;
 		public bool attacking = false;
 
