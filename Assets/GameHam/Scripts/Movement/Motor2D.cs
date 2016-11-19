@@ -127,8 +127,6 @@ namespace UU.GameHam {
 
             _rb.velocity = vel;
 
-
-
             _jumpHoldTimer = 0.0f;
             _jumping = true;
             SetState(State.Jumping);
@@ -188,6 +186,8 @@ namespace UU.GameHam {
         /// Number of seconds the jump button was held for
         /// </summary>
         private float _jumpHoldTimer;
+
+        private LayerMask _layerMask;
         
 
         class Climbable {
@@ -211,6 +211,8 @@ namespace UU.GameHam {
             _col = GetComponent<BoxCollider2D>();
 
             _currentSurface = new Climbable();
+
+            _layerMask = gameObject.layer;
         }
 
 
@@ -333,6 +335,10 @@ namespace UU.GameHam {
             SetState(State.Falling);
         }
 
+		public bool IsFacingRight()
+		{
+			return _facingRight;
+		}
 
 
         private void WallCheck(Vector2 origin, Vector2 dir)
@@ -340,7 +346,7 @@ namespace UU.GameHam {
             if(_currentSurface.collider != null)
                 return;
 
-            var hit = Physics2D.Raycast(origin, dir, wallCheckDistance);
+            var hit = Physics2D.Raycast(origin, dir, wallCheckDistance, _layerMask);
 
 
             if(hit.collider != null) {
@@ -405,7 +411,7 @@ namespace UU.GameHam {
         {
             var offset = new Vector2(offsetX, 0.1f);
             var origin = (Vector2)transform.position + offset;
-            var hitInfo = Physics2D.Raycast(origin, -transform.up, groundCheckDistance);
+            var hitInfo = Physics2D.Raycast(origin, -transform.up, groundCheckDistance, _layerMask);
             if(hitInfo.collider != null) {
 
                 // if the origin of our ground check ray was inside the hit body we can't be sure 

@@ -385,9 +385,9 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 0
+    axis: 1
     joyNum: 1
   - serializedVersion: 3
     m_Name: Joy0RSX
@@ -609,9 +609,9 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 0
+    axis: 1
     joyNum: 2
   - serializedVersion: 3
     m_Name: Joy1RSX
@@ -742,7 +742,7 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Joy0Button0
+    m_Name: Joy2Button0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -758,7 +758,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0Button1
+    m_Name: Joy2Button1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -774,7 +774,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0Button2
+    m_Name: Joy2Button2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -790,7 +790,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0Button3
+    m_Name: Joy2Button3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -806,7 +806,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0LSX
+    m_Name: Joy2LSX
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -822,7 +822,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0LSY
+    m_Name: Joy2LSY
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -833,12 +833,12 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 0
+    axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0RSX
+    m_Name: Joy2RSX
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -854,7 +854,7 @@ InputManager:
     axis: 2
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0RSY
+    m_Name: Joy2RSY
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -870,7 +870,7 @@ InputManager:
     axis: 3
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0LB
+    m_Name: Joy2LB
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -902,7 +902,7 @@ InputManager:
     axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0Back
+    m_Name: Joy2Back
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -934,7 +934,7 @@ InputManager:
     axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0LS
+    m_Name: Joy2LS
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -950,7 +950,7 @@ InputManager:
     axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy0RS
+    m_Name: Joy2RS
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1057,9 +1057,9 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 0
+    axis: 1
     joyNum: 4
   - serializedVersion: 3
     m_Name: Joy3RSX
