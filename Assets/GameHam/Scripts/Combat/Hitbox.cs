@@ -23,8 +23,15 @@ namespace UU.GameHam
 
 		void OnTriggerEnter2D (Collider2D other)
 		{
-			if (other.gameObject.GetComponent<CharacterStats> () != null) {
-				//Damage other player
+            var cs = other.gameObject.GetComponent<CharacterStats>();
+
+            if (cs != null) {
+                //Damage other player
+                Debug.Log("DAMAGING");
+                cs.Damage(1);
+
+                var dir = (other.transform.position - transform.position).x * Vector3.right;
+                other.GetComponent<Motor2D>().KnockBack(dir);
 			}
 		}
 	}
