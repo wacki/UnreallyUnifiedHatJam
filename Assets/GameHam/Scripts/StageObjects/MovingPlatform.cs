@@ -16,10 +16,11 @@ namespace UU.GameHam
 		// Use this for initialization
 		void Start ()
 		{
-			end.SetActive (false);
+			
 			//Tweener object is used to animate a value, in this case it's the position of the transform
-			Tweener moveTween = transform.DOMove (end.transform.position, duration);
+			Tweener moveTween = transform.DOMove (end.transform.localPosition, duration);
 			moveTween.SetLoops (-1, LoopType.Yoyo);
+			end.SetActive (false);
 
 			//This makes the movement that we provide relative to the start position
 			moveTween.SetRelative(true);
