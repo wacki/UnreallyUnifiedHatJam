@@ -174,7 +174,7 @@ GameObject:
   - 50: {fileID: 1382209915}
   - 114: {fileID: 1382209914}
   - 114: {fileID: 1382209913}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - 50: {fileID: 1455068373}
   - 114: {fileID: 1455068372}
   - 114: {fileID: 1455068371}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
