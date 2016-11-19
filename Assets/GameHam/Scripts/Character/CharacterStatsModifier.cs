@@ -40,22 +40,38 @@ namespace UU.GameHam
 
             _timer += Time.deltaTime;
         }
-
+        
+        public virtual void Copy(CharacterStatsModifier other)
+        {
+            duration = other.duration;
+            type = other.type;
+        }   
     }
 
     // todo: add acceleration and speed modifiers as well as checkboxes
     [CreateAssetMenu(menuName = "Stats Modifier/Speed Modifier")]
     public class SpeedModifier : CharacterStatsModifier
     {
+        private float _origVel;
+        private Motor2D _motor;
+
+        public SpeedModifier(SpeedModifier other)
+        {
+        }
+
         public override void OnActivate(GameObject go)
         {
             base.OnActivate(go);
             Debug.Log("Activating Speed Modifier");
+            _motor = go.GetComponent<Motor2D>();
+            _origVel = _motor.maxVelocity;
+            _motor.maxVelocity = 2.0f;
         }
 
         public override void OnDeactivate()
         {
             base.OnDeactivate();
+            _motor.maxVelocity = _origVel;
             Debug.Log("Speed modifier ran out!");
         }
     }
