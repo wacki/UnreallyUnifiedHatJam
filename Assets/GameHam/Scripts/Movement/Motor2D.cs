@@ -31,6 +31,9 @@ namespace UU.GameHam {
         [Tooltip("Amount of air jumps the character is able to do")]
         public int maxAirJumps = 1;
 
+        [Tooltip("Wheather to allow walljumps or not")]
+        public bool allowWalljumps = true;
+
         [Tooltip("Jump trajectory angle when performing a wall jump")]
         public float wallJumpAngle = 45;
 
@@ -48,34 +51,23 @@ namespace UU.GameHam {
 
         [Tooltip("Maximum angle the character can walk up before sliding down a slope"), Range(0.0f, 90.0f)]
         public float slipAngle = 30.0f;
-
-        [Tooltip("Maximum deviation from a completely vertical line a wall can have to still be considered clibmable.")]
-        public float maxClimbableWallAngle;
-
+        
         // advanced settings below (todo: hide thos in advanced foldout or something)
         [Tooltip("Distance at which we'll check for walls")]
         public float wallCheckDistance = 0.2f;
 
         [Tooltip("Number of rays to use along the character's main collider to check for walls"), Range(1, 12)]
-        public int numWallCheckRays = 2;
+        public int numWallCheckRays = 3;
 
         [Tooltip("Distance at which we'll check for the ground")]
         public float groundCheckDistance = 0.2f;
 
         [Tooltip("Number of rays to use to check for the floor beneath the character"), Range(1, 12)]
-        public int numGroundCheckRays = 2;
+        public int numGroundCheckRays = 3;
 
         [Tooltip("Wheather or not to reset air jumps after touching a wall")]
         public bool resetAirJumpsOnWallTouch = true;
-
-        [Tooltip("Velocity to be applied when dashing")]
-        public float dashVelocity = 10.0f;
-
-        [Tooltip("Duration in seconds a dash will be active")]
-        public float dashDuration = 1.0f;
-
-        [Tooltip("Wheather or not to reset air jumps after entering a dash successfully")]
-        public bool resetAirJumpsOnDash = true;
+        
 
         #endregion
 
@@ -122,7 +114,7 @@ namespace UU.GameHam {
 
             var vel = _rb.velocity;
 
-            if(state == State.Walltouch) {
+            if(allowWalljumps && state == State.Walltouch) {
                 var axis = (_currentSurface.facingRight) ? Vector3.forward : Vector3.back;
                 Vector2 dir = Quaternion.AngleAxis(90 - wallJumpAngle, axis) * _currentSurface.normal;
                 dir.Normalize();
@@ -308,6 +300,10 @@ namespace UU.GameHam {
             Vector2 dir = facingDir;
             Vector2 min = _col.bounds.min;
             Vector2 max = _col.bounds.max;
+
+            // todo: put these offsets into a variable
+            min.y += 0.1f;
+            max.y -= 0.1f;
 
             if(facingRight)
                 min.x = _col.bounds.max.x;

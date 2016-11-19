@@ -7,9 +7,10 @@ namespace UU.GameHam
 
     [RequireComponent(typeof(Motor2D))]
     public class PlayerController : MonoBehaviour {
-        public GameObject aimDirCanvas;
         public bool debug;
         public float debugInterval;
+
+        public int playerIndex = 0;
 
         private Motor2D _motor;
 
@@ -24,34 +25,47 @@ namespace UU.GameHam
         }
 
         void Update()
-        {
-            float v = Input.GetAxis("Vertical");
-            float h = Input.GetAxis("Horizontal");
+        {            
 
-            if(Input.GetButtonDown("Jump"))
+            float v = GetAxis("LSY");
+            float h = GetAxis("LSX");
+
+            if (GetButtonDown("Button0"))
                 _motor.StartJump();
-            else if(Input.GetButtonUp("Jump"))
+            else if (GetButtonUp("Button0"))
                 _motor.StopJump();
 
-
-            if(Input.GetButtonDown("Interact")) {
-                //_motor.Grab();
-            }
-            else if(Input.GetButtonUp("Interact")) {
-                //_motor.Release();
-            }
             
-                        
+
             _motor.Move(h, v);
 
 
 #if UNITY_EDITOR
-            if(debug) {
+            if (debug) {
                 //Debug.Log("DEBUGGING");
                 Debug.DrawLine(_prevPosition, transform.position, Color.green, 2.0f);
                 _prevPosition = transform.position;
             }
 #endif
+        }
+
+
+
+        private float GetAxis(string name)
+        {
+            return Input.GetAxis("Joy" + playerIndex + name);
+        }
+        private bool GetButtonDown(string name)
+        {
+            return Input.GetButtonDown("Joy" + playerIndex + name);
+        }
+        private bool GetButtonUp(string name)
+        {
+            return Input.GetButtonUp("Joy" + playerIndex + name);
+        }
+        private bool GetButton(string name)
+        {
+            return Input.GetButton("Joy" + playerIndex + name);
         }
 
     }
