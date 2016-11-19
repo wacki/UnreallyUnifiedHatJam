@@ -10,10 +10,12 @@ namespace UU.GameHam
         Red
     };
 
-    public class CharacterManager : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        public static CharacterManager instance { get { return _instance; } }
-        private static CharacterManager _instance = null;
+        public static GameManager instance { get { return _instance; } }
+        private static GameManager _instance = null;
+
+        public GameObject[] characterInstances { get { return _characterInstances; } }
 
         public GameObject[] characterPrefabs;
 
@@ -36,10 +38,16 @@ namespace UU.GameHam
             for(int i = 0; i < _characterInstances.Length; i++)
             {
                 _characterInstances[i] = Instantiate(characterPrefabs[0]);
-                _characterInstances[i].SetActive(false);
                 _characterInstances[i].GetComponent<PlayerController>().playerIndex = i;
-                _characterInstances[i].GetComponent<CharacterStats>().team = (i % 2 == 0) ? Teams.Blue : Teams.Red;
+                _characterInstances[i].GetComponent<CharacterStats>().SetTeam((i % 2 == 0) ? Teams.Blue : Teams.Red);
+                _characterInstances[i].SetActive(false);
+
             }
+        }
+
+        void Start()
+        {
+            StartRound();
         }
 
         public void StartRound()
@@ -47,12 +55,23 @@ namespace UU.GameHam
             foreach (var player in _characterInstances)
             {
                 player.transform.position = GetEmptySpawnPoint(player.GetComponent<CharacterStats>().team);
+                player.SetActive(true);
             }
         }
 
-        Vector3 GetEmptySpawnPoint(Teams team)
+        public Vector3 GetEmptySpawnPoint(Teams team)
         {
+            var spawnPoints = Resources.FindObjectsOfTypeAll<SpawnPoint>();
+            foreach(var sp in spawnPoints)
+            {
+                if(sp.team == team)
+                {
+                    return sp.transform.position;
+                }
+            }
+
             return Vector3.zero;
+
         }
         
 
