@@ -47,9 +47,12 @@ namespace UU.GameHam
 
             GameManager.instance.selectedTypes = new CharacterType[4];
             var types = GameManager.instance.selectedTypes;
+
+
+
             for(int i = 0; i < playerSelections.Length; i++)
             {
-                types[i] = playerSelections[i].currentSelection;
+                types[playerSelections[i].playerIndex] = playerSelections[i].currentSelection;
             }
 
             while (currentTime > 0.0f)
