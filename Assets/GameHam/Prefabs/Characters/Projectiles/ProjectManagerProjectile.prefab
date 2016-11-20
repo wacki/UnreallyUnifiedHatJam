@@ -90,7 +90,7 @@ MonoBehaviour:
   damage: 1
   doKnockback: 0
   knockbackForce: 0
-  projectileDebuff: {fileID: 11400000, guid: 0e4c17509c8ddef4595058137f972c9b, type: 2}
+  projectileDebuff: {fileID: 11400000, guid: 3691168f357ab4a4aac033f6bf8553a3, type: 2}
   facingRight: 0
 --- !u!212 &212000013208718352
 SpriteRenderer:

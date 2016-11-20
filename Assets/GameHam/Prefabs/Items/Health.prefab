@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnDuration: 10
-  pickupEffect: {fileID: 11400000, guid: 4ecd126f8f65f3a43a3278f35a6a18a1, type: 2}
+  pickupEffect: {fileID: 11400000, guid: b155d445678ff6d479f3a329182ad6f8, type: 2}
 --- !u!212 &212000010670580538
 SpriteRenderer:
   m_ObjectHideFlags: 1
