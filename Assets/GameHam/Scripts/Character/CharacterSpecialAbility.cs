@@ -8,6 +8,7 @@ namespace UU.GameHam
     {
         public CharacterStatsModifier effect;
         public CharacterType characterType;
+        public ArtistGhostSpecial ghostPrefab;
 
         private float cooldownTimer;
         private CharacterStats charStats;
@@ -41,11 +42,33 @@ namespace UU.GameHam
 
         private void UseArtist()
         {
-            if (!SpendEnergyForAbilityUse())
-                return;
+            //if (!SpendEnergyForAbilityUse())
+            //    return;
+            
+            var team = charStats.team;
 
-            if (effect == null)
-                return;
+            float distance = -1;
+            CharacterStats closestEnemy = null;
+            foreach (var player in GameManager.instance.characterInstances)
+            {
+                var enemyCS = player.GetComponent<CharacterStats>();
+                if (enemyCS.team != team)
+                {
+                    if (distance < 0.0f)
+                    {
+                        distance = Vector3.Distance(player.transform.position, transform.position);
+                        closestEnemy = enemyCS;
+                    }
+                    else
+                    {
+                        if (Vector3.Distance(player.transform.position, transform.position) < distance)
+                            closestEnemy = enemyCS;
+                    }
+                }
+            }
+
+            var ghostInstance = Instantiate(ghostPrefab, transform.position, Quaternion.identity) as ArtistGhostSpecial;
+            ghostInstance.target = closestEnemy.gameObject;
 
             Debug.Log("ARTIST USED THEIR SPECIAL");
 

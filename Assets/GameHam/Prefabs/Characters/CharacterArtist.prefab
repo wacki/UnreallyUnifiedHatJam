@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 0}
-  cooldown: 5
-  energyCost: 1
   characterType: 0
+  ghostPrefab: {fileID: 114000011377304094, guid: 2645c00a004dbff4ab11af48837efe23,
+    type: 2}
 --- !u!114 &114000012742628726
 MonoBehaviour:
   m_ObjectHideFlags: 1
