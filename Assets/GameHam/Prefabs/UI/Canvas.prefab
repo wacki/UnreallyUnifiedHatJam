@@ -1188,11 +1188,6 @@ MonoBehaviour:
   - {fileID: 1000013107477098}
   - {fileID: 1000013390807324}
   - {fileID: 1000013608729704}
-  playerClockTimers:
-  - 6
-  - 2
-  - 7
-  - 0
   flagText:
   - {fileID: 1000012510387442}
   - {fileID: 1000013070353364}

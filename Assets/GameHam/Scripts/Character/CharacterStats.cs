@@ -121,6 +121,8 @@ namespace UU.GameHam
         public void Kill()
         {
             _isAlive = false;
+			if (GetComponentInChildren<FlagManager> () != null)
+				GetComponentInChildren<FlagManager> ().releaseFlag ();
             StartCoroutine(RespawnCoroutine());
             transform.position = new Vector3(0, -1000, 1);
         }

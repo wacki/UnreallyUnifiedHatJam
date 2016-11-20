@@ -412,6 +412,8 @@ namespace UU.GameHam
 
             if (hit.collider != null)
             {
+				if (hit.collider.isTrigger)
+					return;
                 _currentSurface.collider = hit.collider;
                 _currentSurface.normal = hit.normal;
                 _currentSurface.facingRight = (Vector2.Dot(hit.normal, Vector2.right) > 0.0f);
@@ -478,7 +480,8 @@ namespace UU.GameHam
             var hitInfo = Physics2D.Raycast(origin, -transform.up, groundCheckDistance, _layerMask);
             if (hitInfo.collider != null)
             {
-
+				if (hitInfo.collider.isTrigger)
+					return true;
                 // if the origin of our ground check ray was inside the hit body we can't be sure 
                 // if it's not glitching inside a wall and giving us a false positive
                 if (hitInfo.collider.bounds.Contains(origin))
