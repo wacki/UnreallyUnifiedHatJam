@@ -22,6 +22,9 @@ namespace UU.GameHam
         public Sprite[] characterTypeSprites;
         public Sprite[] characterTypeSpritesSelected;
 
+        [Multiline]
+        public string[] additionalText;
+
 
         public int playerIndex;
         public CharacterSelection otherTeamMember;
@@ -91,19 +94,19 @@ namespace UU.GameHam
                     {
                         isAxisDown = true;
                         IncrementSelection();
-                        Debug.Log("Select UP");
+                        //Debug.Log("Select UP");
                     }
                     else if (v < -activationThreshold)
                     {
                         isAxisDown = true;
                         DecrementSelection();
-                        Debug.Log("Select Down");
+                        //Debug.Log("Select Down");
                     }
                 }
                 else if (activationThreshold > v && v > -activationThreshold)
                 {
                     isAxisDown = false;
-                    Debug.Log("Select Release");
+                    //Debug.Log("Select Release");
                 }
             }
 
@@ -140,8 +143,8 @@ namespace UU.GameHam
 
         private void UpdateDisplay()
         {
-
-            selectedCharacterText.text = _currentSelection.ToString() + "\n\nROLE: Defense" + "\n\nSPECIAL: Dynamic Level Creation";
+            
+            selectedCharacterText.text = _currentSelection.ToString() + additionalText[(int)_currentSelection];
 
             if (!lockedIn)
                 selectedCharacterImage.sprite = characterTypeSprites[(int)_currentSelection];
