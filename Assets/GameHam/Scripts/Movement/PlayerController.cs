@@ -14,6 +14,7 @@ namespace UU.GameHam
 
         public bool reversControls = false;
 
+
         private Motor2D _motor;
 		private CombatController _combat;
         private CharacterSpecialAbility _specialAbility;
@@ -55,7 +56,6 @@ namespace UU.GameHam
 
 			if (v < -0.1f && inPassable && GetButtonDown ("Button0")) {
 				
-				print ("no");
 				Vector3 pos = transform.position;
 				pos.y -= col.size.y*2f;
 				gameObject.transform.position = pos;

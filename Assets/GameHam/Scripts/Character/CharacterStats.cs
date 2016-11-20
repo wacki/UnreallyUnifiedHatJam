@@ -22,6 +22,7 @@ namespace UU.GameHam
         public CharacterType characterType;
 
         public SpriteRenderer shieldRenderer;
+        
 
         // current health
         public int currentHealth { get { return _currentHealth; } }
@@ -45,6 +46,7 @@ namespace UU.GameHam
 
 
         // current buffs and debuffs affecting the player
+        public List<CharacterStatsModifier> modifiers { get { return _modifiers; } }
         private List<CharacterStatsModifier> _modifiers = new List<CharacterStatsModifier>();
         
 
@@ -125,6 +127,8 @@ namespace UU.GameHam
             
 
             _currentHealth -= amount;
+            _currentHealth = (int)Mathf.Clamp(_currentHealth, 0.0f, maxHealth);           
+
             DeathCheck();
         }
 
@@ -195,11 +199,10 @@ namespace UU.GameHam
             var modInstance = (CharacterStatsModifier)ScriptableObject.CreateInstance(mod.GetType());
             modInstance.Copy(mod);
             Debug.Log(modInstance.duration);
-
+            
             var inList = _modifiers.Find(x => x.GetType() == modInstance.GetType());
             if (inList == null)
             {
-
                 modInstance.OnActivate(gameObject);
                 _modifiers.Add(modInstance);
             }

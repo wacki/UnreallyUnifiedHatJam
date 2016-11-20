@@ -31,10 +31,17 @@ namespace UU.GameHam
 		public float redFlags = 0;
 		public float blueFlags = 0;
 
-		public string gameSceneName;
+        public AudioClip matchClip;
+
+        public string gameSceneName;
 
         void Awake()
         {
+            if (matchClip != null)
+            {
+                AudioManager.instance.PlayOneShot(matchClip);
+            }
+
             if (_instance != null)
             {
                 Debug.LogError("YOU'RE TRYING TO INSTANTIATE MULTIPLE CHARACTER MANAGERS YOU FOOOOOOL!!!!!");
