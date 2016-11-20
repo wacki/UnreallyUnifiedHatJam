@@ -34,7 +34,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011737293032
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1000010490678702}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e0a8f4bbe2714d043a0a431bb162e0ad, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0.16}
@@ -240,6 +240,7 @@ MonoBehaviour:
   team: 0
   maxHealth: 3
   maxEnergy: 5
+  respawnTime: 10
   tempTestBuff: {fileID: 11400000, guid: f4f861a6b29863745b1b4a620fea02fc, type: 2}
 --- !u!114 &114000013473105448
 MonoBehaviour:
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialRangeCooldown: 0.8
   initialMeleeCooldown: 0.8
+  meleeRange: 0
   attacking: 0
   projectileSpawnPoint: {fileID: 1000014260592000}
   projectilePrefab: {fileID: 114000013647957728, guid: a2b9004b4cea4a848bbfc44c7951d1d3,

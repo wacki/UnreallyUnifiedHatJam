@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectible
   - Passable
+  - MovablePlatform
   layers:
   - Default
   - TransparentFX

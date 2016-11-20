@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace UU.GameHam
 {
@@ -12,9 +13,13 @@ namespace UU.GameHam
 
         [Tooltip("Maximum health this character can have")]
         public int maxHealth = 2;
-        
+
         [Tooltip("Maximum energy a character can have at any given point in time")]
         public int maxEnergy = 5;
+
+        public float respawnTime = 10.0f;
+
+        public CharacterType characterType;
 
         // current health
         public int currentHealth { get { return _currentHealth; } }
@@ -24,6 +29,11 @@ namespace UU.GameHam
         public int currentEnergy { get { return _currentEnergy; } }
         private int _currentEnergy;
 
+        public bool isAlive { get { return _isAlive; } }
+        private bool _isAlive = true;
+        public float timeUntilRespawn { get { return _respawnTimer; } }
+        private float _respawnTimer;
+
         private bool _isShieldActive;
         private int _currentShield;
         private float _shieldTimer;
@@ -31,13 +41,23 @@ namespace UU.GameHam
 
         public int currentShield { get { return _currentShield; } }
 
-        // current respawn timer
-        private float _respawnTimer;
 
         // current buffs and debuffs affecting the player
         private List<CharacterStatsModifier> _modifiers = new List<CharacterStatsModifier>();
 
         public CharacterStatsModifier tempTestBuff;
+
+        IEnumerator RespawnCoroutine()
+        {
+            _respawnTimer = respawnTime;
+            while (_respawnTimer > 0.0f)
+            {
+                _respawnTimer -= Time.deltaTime;
+                yield return null;
+            }
+            Spawn();
+            _respawnTimer = 0.0f;
+        }
 
         void Awake()
         {
@@ -45,6 +65,21 @@ namespace UU.GameHam
             ApplyModifier(tempTestBuff);
             _currentHealth = maxHealth;
             _currentEnergy = maxEnergy;
+        }
+
+        public void SetTeam(Teams t)
+        {
+            team = t;
+            int layer;
+            if (team == Teams.Blue)
+                layer = LayerMask.NameToLayer("TeamBlue");
+            else
+                layer = LayerMask.NameToLayer("TeamRed");
+
+            gameObject.layer = layer;
+
+            for (int i = 0; i < transform.childCount; i++)
+                transform.GetChild(i).gameObject.layer = layer;
         }
 
         public void ActivateShield(int shieldAmount, float shieldTimer)
@@ -65,7 +100,7 @@ namespace UU.GameHam
         /// <param name="amount"></param>
         public void Damage(int amount)
         {
-            if(_isShieldActive)
+            if (_isShieldActive)
             {
 
             }
@@ -79,7 +114,9 @@ namespace UU.GameHam
         /// </summary>
         public void Kill()
         {
-            Debug.Log("I AM KILL");
+            _isAlive = false;
+            StartCoroutine(RespawnCoroutine());
+            transform.position = new Vector3(0, -1000, 1);
         }
 
         /// <summary>
@@ -87,9 +124,17 @@ namespace UU.GameHam
         /// </summary>
         public void Spawn()
         {
+            // reset health
+            _currentEnergy = maxEnergy;
+            _currentHealth = maxHealth;
 
+            // set position back to one of the spawn points
+            transform.position = GameManager.instance.GetEmptySpawnPoint(team);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            _isAlive = true;
         }
-        
+
         private void DeathCheck()
         {
             if (_currentHealth <= 0)
@@ -107,7 +152,8 @@ namespace UU.GameHam
             Debug.Log(modInstance.duration);
 
             var inList = _modifiers.Find(x => x.GetType() == modInstance.GetType());
-            if (inList == null) {
+            if (inList == null)
+            {
 
                 modInstance.OnActivate(gameObject);
                 _modifiers.Add(modInstance);
@@ -117,7 +163,7 @@ namespace UU.GameHam
                 // refresh existing effect
                 Debug.Log("EFFECT ALREADY PRESENT");
             }
-                
+
         }
 
         void Update()
@@ -125,7 +171,7 @@ namespace UU.GameHam
             UpdateModifiers();
 
             // update shield
-            if(_isShieldActive)
+            if (_isShieldActive)
             {
                 _shieldTimer -= Time.deltaTime;
                 if (_shieldTimer <= 0.0f)
@@ -148,7 +194,7 @@ namespace UU.GameHam
 
             // remove buffs that ran out
             _modifiers.RemoveAll(x => toRemove.Contains(x));
-            foreach(var mod in toRemove)
+            foreach (var mod in toRemove)
             {
                 Destroy(mod);
             }
