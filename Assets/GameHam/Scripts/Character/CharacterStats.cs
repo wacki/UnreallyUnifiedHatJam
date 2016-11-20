@@ -127,6 +127,8 @@ namespace UU.GameHam
             
 
             _currentHealth -= amount;
+            _currentHealth = (int)Mathf.Clamp(_currentHealth, 0.0f, maxHealth);           
+
             DeathCheck();
         }
 

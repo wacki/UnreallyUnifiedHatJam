@@ -212,7 +212,7 @@ namespace UU.GameHam
         /// </summary>
         private float _jumpHoldTimer;
 
-        private LayerMask _layerMask;
+        public LayerMask _layerMask;
 
         private float _knockbackTimer;
         private Vector2 _knockbackDir;
