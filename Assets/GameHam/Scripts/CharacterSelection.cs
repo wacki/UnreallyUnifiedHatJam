@@ -20,12 +20,14 @@ namespace UU.GameHam
     public class CharacterSelection : MonoBehaviour
     {
         public Sprite[] characterTypeSprites;
+        public Sprite[] characterTypeSpritesSelected;
+
 
         public int playerIndex;
         public CharacterSelection otherTeamMember;
 
-		public int redFlags;
-		public int blueFlags;
+        public int redFlags;
+        public int blueFlags;
 
         public Text selectedCharacterText;
         public Image selectedCharacterImage;
@@ -106,16 +108,14 @@ namespace UU.GameHam
             }
 
             // LOCK selection on A
-            if(GetButtonDown("Button0"))
+            if (GetButtonDown("Button0"))
             {
-                lockedIn = true;
-                selectedCharacterImage.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+                lockedIn = true; UpdateDisplay();
             }
             // unlock selection on B
-            else if(GetButtonDown("Button1"))
+            else if (GetButtonDown("Button1"))
             {
-                lockedIn = false;
-                selectedCharacterImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                lockedIn = false; UpdateDisplay();
             }
 
         }
@@ -140,8 +140,13 @@ namespace UU.GameHam
 
         private void UpdateDisplay()
         {
+
             selectedCharacterText.text = _currentSelection.ToString() + "\n\nROLE: Defense" + "\n\nSPECIAL: Dynamic Level Creation";
-            selectedCharacterImage.sprite = characterTypeSprites[(int)_currentSelection];
+
+            if (!lockedIn)
+                selectedCharacterImage.sprite = characterTypeSprites[(int)_currentSelection];
+            else
+                selectedCharacterImage.sprite = characterTypeSpritesSelected[(int)_currentSelection];
         }
 
 
