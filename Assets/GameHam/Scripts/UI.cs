@@ -23,6 +23,9 @@ namespace UU.GameHam
 
 		public GameObject[] flagText = new GameObject[2];
 
+		public GameObject redFlagText;
+		public GameObject blueFlagText;
+
 		// Use this for initialization
 		void Start ()
 		{
@@ -56,7 +59,8 @@ namespace UU.GameHam
 
 			//Draw flag related stuff
 
-
+			redFlagText.gameObject.GetComponent<Text> ().text = GameManager.instance.redFlags + "";
+			blueFlagText.gameObject.GetComponent<Text> ().text = GameManager.instance.blueFlags+ "";
 
 		}
 

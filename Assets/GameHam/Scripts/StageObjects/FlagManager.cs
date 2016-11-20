@@ -39,7 +39,6 @@ namespace UU.GameHam
 						rb.isKinematic = true;
 						transform.parent = other.transform;
 						transform.localPosition = new Vector3 (0, 0);
-						print ("blue got the flag");
 					}
 				}
 			}
@@ -50,7 +49,6 @@ namespace UU.GameHam
 			if (transform.parent != null) {
 				if(transform.parent.gameObject.GetComponent<CharacterStats>().isAlive == false)
 				{
-					print ("blue dropped the flag");
 					boxCollider.enabled = true;
 					transform.parent = null;
 					rb.isKinematic = false;

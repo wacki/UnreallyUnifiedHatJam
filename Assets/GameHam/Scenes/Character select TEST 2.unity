@@ -453,7 +453,7 @@ MonoBehaviour:
   - {fileID: 0}
   redFlags: 0
   blueFlags: 0
-  gameSceneName: gym_map 1
+  gameSceneName: TEST 2
 --- !u!4 &705603865
 Transform:
   m_ObjectHideFlags: 0
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   gameStartCountDown: 2
   currentTime: 0
   startCountdownText: {fileID: 1468941860}
-  gameSceneName: gym_map 1
+  gameSceneName: TEST 2
   playerSelections:
   - {fileID: 1190651891}
   - {fileID: 436284933}

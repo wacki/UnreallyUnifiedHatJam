@@ -345,7 +345,7 @@ GameObject:
   - 222: {fileID: 222000013554468532}
   - 114: {fileID: 114000010191485688}
   m_Layer: 5
-  m_Name: RedTeamFlags
+  m_Name: BlueTeamFlags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,7 @@ GameObject:
   - 222: {fileID: 222000011794075322}
   - 114: {fileID: 114000012510093580}
   m_Layer: 5
-  m_Name: BlueTeamFlags
+  m_Name: RedTeamFlags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1811,6 +1811,8 @@ MonoBehaviour:
   flagText:
   - {fileID: 1000012510387442}
   - {fileID: 1000013070353364}
+  redFlagText: {fileID: 1000013070353364}
+  blueFlagText: {fileID: 1000012510387442}
 --- !u!222 &222000010304869598
 CanvasRenderer:
   m_ObjectHideFlags: 1
