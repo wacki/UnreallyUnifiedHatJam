@@ -14,9 +14,13 @@ namespace UU.GameHam
         public float minDistance;
 
         public float smoothTime = 0.3F;
+
+        public Vector2 offset;
+
         private Vector3 targetPos;
         private Camera _cam;
         private Vector3 velocity = Vector3.zero;
+
 
         void Awake()
         {
@@ -79,10 +83,11 @@ namespace UU.GameHam
             Vector2 maxDistance = Vector2.zero;
 
             // camera position on the xy plane
-            Vector3 cameraXY = Vector3.ProjectOnPlane(transform.position, Vector3.back);
+            Vector3 cameraXY = Vector3.ProjectOnPlane(transform.position + new Vector3(offset.x, offset.y, 0.0f), Vector3.back);
+
 
             // get max distance from camera center on xy 2d plane
-            foreach(var character in GameManager.instance.characterInstances)
+            foreach (var character in GameManager.instance.characterInstances)
             {
                 if (!character.GetComponent<CharacterStats>().isAlive)
                     continue;
@@ -105,7 +110,7 @@ namespace UU.GameHam
             targetPos.z = -Mathf.Max(distanceX, distanceY, minDistance);
 
 
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime) + new Vector3(offset.x, offset.y, 0.0f); 
         }
 
         /// <summary>

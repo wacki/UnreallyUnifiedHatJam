@@ -8,10 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: ShieldBuff
-  m_EditorClassIdentifier: Assembly-CSharp:UU.GameHam:ShieldModifier
+  m_Script: {fileID: 11500000, guid: 9a1661bb49e02f74ca28b2efd1e3081a, type: 3}
+  m_Name: EnergyModifier
+  m_EditorClassIdentifier: 
   type: 0
   duration: 0
-  shieldAmount: 5
-  shieldDuration: 5

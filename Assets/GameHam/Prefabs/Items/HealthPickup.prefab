@@ -9,95 +9,73 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000012081727748}
+  m_RootGameObject: {fileID: 1000013911961304}
   m_IsPrefabParent: 1
---- !u!1 &1000012081727748
+--- !u!1 &1000013911961304
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000011513215450}
-  - 212: {fileID: 212000013208718352}
-  - 61: {fileID: 61000013203535780}
-  - 50: {fileID: 50000013622060498}
-  - 114: {fileID: 114000013647957728}
-  m_Layer: 0
-  m_Name: ProgrammerProjectile
-  m_TagString: Untagged
+  - 4: {fileID: 4000014064643636}
+  - 212: {fileID: 212000010748001706}
+  - 61: {fileID: 61000012345101406}
+  - 114: {fileID: 114000010051937892}
+  m_Layer: 2
+  m_Name: HealthPickup
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011513215450
+--- !u!4 &4000014064643636
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012081727748}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.935, y: -1.944, z: 0}
-  m_LocalScale: {x: 0.2512616, y: 0.2512616, z: 1}
+  m_GameObject: {fileID: 1000013911961304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4552298, y: 1.282716, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000013622060498
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012081727748}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &61000013203535780
+--- !u!61 &61000012345101406
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012081727748}
+  m_GameObject: {fileID: 1000013911961304}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.16}
+  m_Offset: {x: -0.0116996765, y: -0.0061912537}
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
---- !u!114 &114000013647957728
+  m_Size: {x: 0.4466013, y: 0.6714839}
+--- !u!114 &114000010051937892
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012081727748}
+  m_GameObject: {fileID: 1000013911961304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17f5103272294f468e330f3da06345f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f17d6407f355d94aba7f1f0778ceada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  effect: No
-  damage: 1
-  doKnockback: 0
-  knockbackForce: 0
-  projectileDebuff: {fileID: 11400000, guid: 277c4ea932de8154c8d37195b76d5209, type: 2}
-  facingRight: 0
---- !u!212 &212000013208718352
+  respawnDuration: 10
+  pickupEffect: {fileID: 11400000, guid: b155d445678ff6d479f3a329182ad6f8, type: 2}
+  removeDebuffsOnPickup: 0
+--- !u!212 &212000010748001706
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012081727748}
+  m_GameObject: {fileID: 1000013911961304}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -120,8 +98,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3713b389ff415b54c9627674b4008f2e, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

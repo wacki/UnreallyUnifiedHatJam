@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012081727748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.935, y: -1.944, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,7 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   effect: No
-  projectileDebuff: {fileID: 11400000, guid: 05f608a53281598408167c8942c52e6d, type: 2}
+  damage: 1
+  doKnockback: 1
+  knockbackForce: 50
+  projectileDebuff: {fileID: 0}
   facingRight: 0
 --- !u!212 &212000013208718352
 SpriteRenderer:
