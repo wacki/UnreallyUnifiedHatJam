@@ -72,8 +72,8 @@ MonoBehaviour:
   damageAmount: 2
   instaKill: 1
   dampenFactor: 5
-  duration: 4
-  acceleration: 10
+  duration: 5
+  acceleration: 20
 --- !u!212 &212000013743200318
 SpriteRenderer:
   m_ObjectHideFlags: 1
