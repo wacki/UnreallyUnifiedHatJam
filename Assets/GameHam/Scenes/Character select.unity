@@ -230,7 +230,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 3
+  playerIndex: 0
   otherTeamMember: {fileID: 1190651891}
   selectedCharacterText: {fileID: 1005273487}
   selectedCharacterImage: {fileID: 436284934}
@@ -718,7 +718,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 2
+  playerIndex: 1
   otherTeamMember: {fileID: 436284933}
   selectedCharacterText: {fileID: 2123447042}
   selectedCharacterImage: {fileID: 1190651892}
@@ -863,7 +863,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 1
+  playerIndex: 2
   otherTeamMember: {fileID: 1768432143}
   selectedCharacterText: {fileID: 990476368}
   selectedCharacterImage: {fileID: 1366868755}
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 0
+  playerIndex: 3
   otherTeamMember: {fileID: 1366868757}
   selectedCharacterText: {fileID: 891624060}
   selectedCharacterImage: {fileID: 1768432141}
