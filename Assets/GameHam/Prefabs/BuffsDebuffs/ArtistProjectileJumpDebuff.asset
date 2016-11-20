@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   duration: 3
-  modifiedJumpSpeed: 100
+  modifiedJumpSpeed: 2
