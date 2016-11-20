@@ -87,7 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   effect: No
-  projectileDebuff: {fileID: 11400000, guid: 0077b1a5d95101849b2745229079777b, type: 2}
+  damage: 1
+  doKnockback: 0
+  knockbackForce: 0
+  projectileDebuff: {fileID: 11400000, guid: 3e3b014d4258e444c8a54b15164f6bc2, type: 2}
   facingRight: 0
 --- !u!212 &212000013208718352
 SpriteRenderer:

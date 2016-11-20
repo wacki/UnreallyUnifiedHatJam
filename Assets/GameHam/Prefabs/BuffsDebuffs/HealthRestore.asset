@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:UU.GameHam:HealthModifier
   type: 0
   duration: 0
+  healthAmount: 1

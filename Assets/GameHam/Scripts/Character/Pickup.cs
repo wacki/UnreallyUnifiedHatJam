@@ -3,16 +3,49 @@ using System.Collections;
 
 namespace UU.GameHam
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class Pickup : MonoBehaviour
     {
-		void OnTriggerEnter2D(Collider2D other){
-			//If the object I collide with has a bario component
-			if (other.GetComponent<CharacterStats>() != null) {
+        public float respawnDuration;
+        public CharacterStatsModifier pickupEffect;
+        private bool onCooldown = false;
+        private float respawnTimer;
+        private SpriteRenderer spriteRenderer;
 
+        void Awake()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
 
+        void Update()
+        {
+            if (onCooldown)
+            {
+                respawnTimer -= Time.deltaTime;
+                if (respawnTimer <= 0.0f)
+                {
+                    onCooldown = false;
+                    spriteRenderer.enabled = true;
+                }
+            }
+        }
 
-			}
-		}
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            var cs = other.GetComponent<CharacterStats>();
+            if (other.GetComponent<CharacterStats>() != null)
+            {
+                cs.ApplyModifier(pickupEffect);
+                StartCooldown();
+            }
+        }
+
+        void StartCooldown()
+        {
+            onCooldown = true;
+            respawnTimer = respawnDuration;
+            spriteRenderer.enabled = false;
+        }
     }
 
 
