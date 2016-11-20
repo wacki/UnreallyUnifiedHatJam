@@ -17,6 +17,8 @@ namespace UU.GameHam
         private bool _isActive = false;
         public bool isActive { get { return _isActive; } }
 
+        public float timeLeft { get { return duration - _timer; } }
+
         private float _timer;
 
         public virtual void OnActivate(GameObject go)
