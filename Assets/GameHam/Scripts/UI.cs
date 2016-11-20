@@ -9,18 +9,16 @@ namespace UU.GameHam
 	public class UI : MonoBehaviour
 	{
 
-		public GameObject[] players = new GameObject[4];
+		public CharacterStats[] players = new CharacterStats[4];
 
 		public GameObject[] playerClock = new GameObject[4];
-
-		public float[] playerClockTimers = new float[4];
 
 		public GameObject[] flagText = new GameObject[2];
 
 		// Use this for initialization
 		void Start ()
 		{
-			
+			players = Resources.FindObjectsOfTypeAll<CharacterStats> ();
 		}
 	
 		// Update is called once per frame
@@ -31,15 +29,9 @@ namespace UU.GameHam
 				playerClock [i].SetActive (false);
 
 				//Draw Chronometers if they are dead
-				if (playerClockTimers [i] > 0) {
-					playerClockTimers [i] -= Time.deltaTime;
-					playerClock [i].GetComponentInChildren<Text> ().text = Mathf.Ceil (playerClockTimers [i]) + "";
+				if (players [i].timeUntilRespawn > 0.0f) {
+					playerClock [i].GetComponentInChildren<Text> ().text = Mathf.Ceil (players [i].timeUntilRespawn) + "";
 					playerClock [i].SetActive (true);
-
-					if (playerClockTimers [i] <= 0) {
-						respawnPlayer (players [i]);
-					}
-
 				}
 
 				//If they are alive draw health bars instead
