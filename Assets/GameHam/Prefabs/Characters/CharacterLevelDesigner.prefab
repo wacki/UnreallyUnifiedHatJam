@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012902257470}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: ProjectilePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,9 @@ GameObject:
   - 114: {fileID: 114000011607035152}
   - 114: {fileID: 114000012742628726}
   - 114: {fileID: 114000011903529454}
-  m_Layer: 11
+  - 95: {fileID: 95000011762608160}
+  - 114: {fileID: 114000010067680012}
+  m_Layer: 9
   m_Name: CharacterLevelDesigner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,8 +87,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012773808386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.298964, y: -1.745296, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 3.5352182, y: -2.621, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012902257470}
@@ -100,8 +102,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013325354556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.171, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013225818594}
@@ -134,9 +136,37 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: e0a8f4bbe2714d043a0a431bb162e0ad, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.16}
+  m_Offset: {x: 0, y: 0.4367406}
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.32, y: 0.8734812}
+--- !u!95 &95000011762608160
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012773808386}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb65042e1ecb1b641a0e68c587dc1bae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010067680012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012773808386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24693c8c272b09428b8bdfbd9f26b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011607035152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60b4ac67659db84193c9a8f3e58294f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 1
   maxHealth: 3
   maxEnergy: 5
   respawnTime: 8
@@ -201,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug: 1
   debugInterval: 0
-  playerIndex: 0
+  playerIndex: 1
   reversControls: 0
   v: 0
   inPassable: 0
@@ -263,8 +293,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3713b389ff415b54c9627674b4008f2e, type: 3}
-  m_Color: {r: 0.14097348, g: 1, b: 0.1102941, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8b0be141ee36e4e4cb46fcd8473e445e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000013656547832
@@ -295,7 +325,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 9d008352e24483443a125d936ba8774d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
