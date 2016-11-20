@@ -173,6 +173,7 @@ MonoBehaviour:
   debug: 1
   debugInterval: 0
   playerIndex: 0
+  reversControls: 0
   v: 0
   inPassable: 0
 --- !u!114 &114000012915305434
@@ -203,6 +204,7 @@ MonoBehaviour:
   resetAirJumpsOnWallTouch: 1
   knockBackDuration: 0.05
   knockbackStrength: 300
+  isStunned: 0
 --- !u!212 &212000012997786854
 SpriteRenderer:
   m_ObjectHideFlags: 1
