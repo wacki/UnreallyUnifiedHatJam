@@ -64,7 +64,20 @@ namespace UU.GameHam
 
         void Start()
         {
-            //StartRound();
+
+			/*
+			for (int i = 0; i < _characterInstances.Length; i++)
+			{
+				int prefabIndex = (int)selectedTypes[i];
+
+				_characterInstances[i] = Instantiate(characterPrefabs[prefabIndex]);
+				_characterInstances[i].GetComponent<PlayerController>().playerIndex = i;
+				_characterInstances[i].GetComponent<CharacterStats>().SetTeam((i <2) ? Teams.Blue : Teams.Red);
+				_characterInstances[i].SetActive(false);
+
+			}
+			StartRound();
+			*/
         }
 
         public void StartRound()

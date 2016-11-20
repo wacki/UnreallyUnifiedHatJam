@@ -138,7 +138,7 @@ MonoBehaviour:
   team: 0
   maxHealth: 3
   maxEnergy: 5
-  respawnTime: 10
+  respawnTime: 8
   characterType: 1
   tempTestBuff: {fileID: 11400000, guid: f4f861a6b29863745b1b4a620fea02fc, type: 2}
 --- !u!114 &114000012875309766
