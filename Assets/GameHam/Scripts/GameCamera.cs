@@ -10,11 +10,13 @@ namespace UU.GameHam
     {
         [Tooltip("Inner border, camera will try to keep players inside this range")]
         public Vector2 margin;
-
-        public Transform[] tempTestTransforms;
+        
         public float minDistance;
 
+        public float smoothTime = 0.3F;
+        private Vector3 targetPos;
         private Camera _cam;
+        private Vector3 velocity = Vector3.zero;
 
         void Awake()
         {
@@ -25,12 +27,39 @@ namespace UU.GameHam
         {
             // get midpoint for all tracked objects
             Vector3 midpoint = Vector3.zero;
-            foreach (var trfrm in tempTestTransforms)
+            int totalCount = 0;
+            bool first = true;
+            Vector3 minPoint = Vector3.zero;
+            Vector3 maxPoint = Vector3.zero;
+            foreach (var character in GameManager.instance.characterInstances)
             {
-                midpoint += trfrm.position;
-            }
+                if (!character.GetComponent<CharacterStats>().isAlive)
+                    continue;
 
-            midpoint /= tempTestTransforms.Length;
+                if(first)
+                {
+                    first = false;
+                    minPoint = character.transform.position;
+                    maxPoint = minPoint;
+                }
+                else
+                {
+                    minPoint.x = Mathf.Min(minPoint.x, character.transform.position.x);
+                    minPoint.y = Mathf.Min(minPoint.y, character.transform.position.y);
+                    minPoint.z = Mathf.Min(minPoint.z, character.transform.position.z);
+
+                    maxPoint.x = Mathf.Max(maxPoint.x, character.transform.position.x);
+                    maxPoint.y = Mathf.Max(maxPoint.y, character.transform.position.y);
+                    maxPoint.z = Mathf.Max(maxPoint.z, character.transform.position.z);
+                }
+
+                totalCount++;
+            }
+            if (totalCount < 1)
+                return;
+
+            midpoint = minPoint + maxPoint;
+            midpoint /= 2;
             var pos = transform.position;
             pos.x = midpoint.x;
             pos.y = midpoint.y;
@@ -53,8 +82,12 @@ namespace UU.GameHam
             Vector3 cameraXY = Vector3.ProjectOnPlane(transform.position, Vector3.back);
 
             // get max distance from camera center on xy 2d plane
-            foreach(var trfrm in tempTestTransforms)
+            foreach(var character in GameManager.instance.characterInstances)
             {
+                if (!character.GetComponent<CharacterStats>().isAlive)
+                    continue;
+
+                var trfrm = character.transform;
                 var distX = Mathf.Abs(cameraXY.x - trfrm.position.x);
                 var distY = Mathf.Abs(cameraXY.y - trfrm.position.y);
                 maxDistance.x = Mathf.Max(maxDistance.x, distX);
@@ -68,9 +101,11 @@ namespace UU.GameHam
             float distanceX = calcCameraDistance(maxDistance.x, hfov);
             float distanceY = calcCameraDistance(maxDistance.y, vfov);
 
-            var oldPos = transform.position;
-            oldPos.z = -Mathf.Max(distanceX, distanceY, minDistance);
-            transform.position = oldPos;
+            targetPos = transform.position;
+            targetPos.z = -Mathf.Max(distanceX, distanceY, minDistance);
+
+
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         }
 
         /// <summary>

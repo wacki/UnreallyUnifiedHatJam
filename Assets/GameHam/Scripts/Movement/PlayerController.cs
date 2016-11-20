@@ -29,7 +29,9 @@ namespace UU.GameHam
         {
 			_combat = GetComponent<CombatController>();
 			_motor = GetComponent<Motor2D>();
+#if UNITY_EDITOR
             _prevPosition = transform.position;
+#endif
 
         }
 
