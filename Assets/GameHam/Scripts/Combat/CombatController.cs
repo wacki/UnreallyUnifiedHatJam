@@ -115,7 +115,14 @@ namespace UU.GameHam
                         }
 
                         otherPlayer.Damage(1);
-                        otherPlayer.GetComponent<Motor2D>().KnockBack(otherPlayer.transform.position - transform.position);
+
+                        // project force vector onto X
+                        var dir = otherPlayer.transform.position - transform.position;
+                        dir.y = 0;
+                        dir.z = 0;
+                        dir.Normalize();
+
+                        otherPlayer.GetComponent<Motor2D>().KnockBack(dir);
                         // increase energy on succesful hit
                         GetComponent<CharacterStats>().IncreaseEnergy(1);
                     }
