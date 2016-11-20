@@ -46,9 +46,11 @@ namespace UU.GameHam
 					playerClock [i].SetActive (true);
 				}
 
-				//If they are alive draw health bars instead
+				//If they are alive draw health stuff instead
 				else {
-
+					HP [i].gameObject.GetComponent<Text> ().text = "HP " + players [i].currentHealth + "/" + players [i].maxHealth;
+					Pow [i].gameObject.GetComponent<Text> ().text = "POW " + players [i].currentEnergy + "/" + players [i].maxEnergy;
+					shield [i].gameObject.GetComponent<Text> ().text = "Shield " + players [i].currentShield;
 				}
 			}
 
