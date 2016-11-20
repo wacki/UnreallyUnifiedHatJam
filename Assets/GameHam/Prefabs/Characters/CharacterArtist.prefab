@@ -599,7 +599,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114000013647957728, guid: 66a89743c5b05ee4dbfd582ffc830c00,
     type: 2}
   hitSound: {fileID: 8300000, guid: 3494d0b8ead40e94dbbc7df428d8f840, type: 3}
-  missSound: {fileID: 8300000, guid: 3494d0b8ead40e94dbbc7df428d8f840, type: 3}
+  missSound: {fileID: 8300000, guid: 09207d160dff9be4b82627fe031069a9, type: 3}
 --- !u!114 &114000011676421092
 MonoBehaviour:
   m_ObjectHideFlags: 1

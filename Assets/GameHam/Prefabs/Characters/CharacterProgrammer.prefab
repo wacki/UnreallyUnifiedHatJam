@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454071106bbf3f741a38afb038694ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSound: {fileID: 8300000, guid: bd2683fdcbcffa94c87cfcf9d800cf0f, type: 3}
+  jumpSound: {fileID: 8300000, guid: c85260a2e7554f1428c6643e19c5a60f, type: 3}
   jumpVelocity: 9
   maxJumpDuration: 0
   maxAirJumps: 0
