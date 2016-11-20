@@ -125,6 +125,8 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1000011054595800}
   projectilePrefab: {fileID: 114000013647957728, guid: 900ed0dff07ad834ab5afc4a7e89d911,
     type: 2}
+  hitSound: {fileID: 8300000, guid: 55378a64181c5ff4f9dbb16f0953f154, type: 3}
+  missSound: {fileID: 8300000, guid: 55378a64181c5ff4f9dbb16f0953f154, type: 3}
 --- !u!114 &114000012742628726
 MonoBehaviour:
   m_ObjectHideFlags: 1

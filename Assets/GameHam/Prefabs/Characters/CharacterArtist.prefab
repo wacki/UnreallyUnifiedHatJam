@@ -143,6 +143,8 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1000011054595800}
   projectilePrefab: {fileID: 114000013647957728, guid: 66a89743c5b05ee4dbfd582ffc830c00,
     type: 2}
+  hitSound: {fileID: 8300000, guid: 3494d0b8ead40e94dbbc7df428d8f840, type: 3}
+  missSound: {fileID: 8300000, guid: 3494d0b8ead40e94dbbc7df428d8f840, type: 3}
 --- !u!114 &114000012200936996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,8 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 0}
-  cooldown: 5
-  energyCost: 1
   characterType: 0
 --- !u!114 &114000012742628726
 MonoBehaviour:

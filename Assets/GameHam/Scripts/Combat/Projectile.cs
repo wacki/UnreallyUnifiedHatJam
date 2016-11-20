@@ -13,6 +13,9 @@ namespace UU.GameHam
 		[Tooltip("Type the string of the effect")]
 		public string effect; //String of effect
 
+        public AudioClip shootSound;
+        public AudioClip hitSound;
+
         public int damage = 1;
 
         public CharacterStats owner;
@@ -28,7 +31,13 @@ namespace UU.GameHam
 
 		void Start ()
 		{
-			if (facingRight)
+            if (shootSound != null)
+            {
+                AudioManager.instance.PlayOneShot(shootSound);
+            }
+
+
+            if (facingRight)
 				gameObject.GetComponent<Rigidbody2D> ().velocity = transform.right * speed;
 			else
 				gameObject.GetComponent<Rigidbody2D> ().velocity = transform.right * -speed;
@@ -54,7 +63,10 @@ namespace UU.GameHam
                 owner.IncreaseEnergy(1);
                 
             }
-
+            if (hitSound != null)
+            {
+                AudioManager.instance.PlayOneShot(hitSound);
+            }
             Destroy(gameObject);
 
         }

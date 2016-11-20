@@ -25,6 +25,9 @@ namespace UU.GameHam
 
         public Projectile projectilePrefab;
 
+        public AudioClip hitSound;
+        public AudioClip missSound;
+
         void Start()
         {
 
@@ -94,10 +97,24 @@ namespace UU.GameHam
                 {
                     if(otherPlayer.team != myTeam)
                     {
+                        // play hit sound
+                        if (hitSound != null)
+                        {
+                            AudioManager.instance.PlayOneShot(hitSound);
+                        }
+
                         otherPlayer.Damage(1);
                         otherPlayer.GetComponent<Motor2D>().KnockBack(otherPlayer.transform.position - transform.position);
                         // increase energy on succesful hit
                         GetComponent<CharacterStats>().IncreaseEnergy(1);
+                    }
+                    else
+                    {
+                        // play miss sound
+                        if (missSound != null)
+                        {
+                            AudioManager.instance.PlayOneShot(missSound);
+                        }
                     }
                 }
             }
