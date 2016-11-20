@@ -230,7 +230,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 1
+  playerIndex: 3
   otherTeamMember: {fileID: 1190651891}
   selectedCharacterText: {fileID: 1005273487}
   selectedCharacterImage: {fileID: 436284934}
@@ -437,12 +437,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae0d9f8df2581d41985eb1167bc4d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  started: 0
   selectedTypes: 
   characterPrefabs:
   - {fileID: 1000012773808386, guid: c24bc6e19077c8949bfb3fcd416c2857, type: 2}
   - {fileID: 1000012773808386, guid: 27dddd8e5eaecf044a810abff5aa62b4, type: 2}
   - {fileID: 1000012773808386, guid: b09450b916390a548a4cf150b48cf06e, type: 2}
   - {fileID: 1000012773808386, guid: 0e950d79acf5753438d76b354347e29b, type: 2}
+  _characterInstances:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &705603865
 Transform:
   m_ObjectHideFlags: 0
@@ -712,7 +718,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 0
+  playerIndex: 2
   otherTeamMember: {fileID: 436284933}
   selectedCharacterText: {fileID: 2123447042}
   selectedCharacterImage: {fileID: 1190651892}
@@ -857,7 +863,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 2
+  playerIndex: 1
   otherTeamMember: {fileID: 1768432143}
   selectedCharacterText: {fileID: 990476368}
   selectedCharacterImage: {fileID: 1366868755}
@@ -1086,7 +1092,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e9cfe622b15b4945bb6345161efb5f8, type: 3}
   - {fileID: 21300000, guid: cd077469eb0bfba4f9ecd7905169b99c, type: 3}
   - {fileID: 21300000, guid: 1eaf756cbf2a72645835b2864561b5a2, type: 3}
-  playerIndex: 3
+  playerIndex: 0
   otherTeamMember: {fileID: 1366868757}
   selectedCharacterText: {fileID: 891624060}
   selectedCharacterImage: {fileID: 1768432141}
