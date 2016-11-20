@@ -65,7 +65,7 @@ namespace UU.GameHam
         void Start()
         {
 
-			/*
+
 			for (int i = 0; i < _characterInstances.Length; i++)
 			{
 				int prefabIndex = (int)selectedTypes[i];
@@ -77,7 +77,7 @@ namespace UU.GameHam
 
 			}
 			StartRound();
-			*/
+
         }
 
         public void StartRound()
