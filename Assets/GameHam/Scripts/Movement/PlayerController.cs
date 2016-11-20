@@ -41,7 +41,10 @@ namespace UU.GameHam
         }
 
         void Update()
-        {            
+        {
+            var charStats = GetComponent<CharacterStats>();
+            if (!charStats.isAlive)
+                return;
 
 			v = GetAxis("LSY");
 			h = GetAxis("LSX");

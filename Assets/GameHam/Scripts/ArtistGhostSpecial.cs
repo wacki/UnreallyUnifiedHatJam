@@ -28,6 +28,13 @@ namespace UU.GameHam
             _velocity += acceleration * dir * Time.deltaTime;
             transform.position += (Vector3)_velocity * Time.deltaTime;
 
+            var targetCs = target.GetComponent<CharacterStats>();
+            if (!targetCs.isAlive)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             if (timer > duration)
                 Destroy(gameObject);
 
@@ -43,6 +50,7 @@ namespace UU.GameHam
 
             if (targetCs == null)
                 return;
+
 
             if (!instaKill)
                 targetCs.Damage(damageAmount);

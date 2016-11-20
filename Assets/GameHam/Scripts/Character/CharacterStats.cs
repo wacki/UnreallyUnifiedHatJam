@@ -165,8 +165,10 @@ namespace UU.GameHam
         public void Spawn()
         {
             // reset health
-            _currentEnergy = maxEnergy;
+            _currentEnergy = 0;
+            _currentShield = 0;
             _currentHealth = maxHealth;
+            ClearModifiers();
 
             // set position back to one of the spawn points
             transform.position = GameManager.instance.GetEmptySpawnPoint(team);
