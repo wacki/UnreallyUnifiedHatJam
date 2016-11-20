@@ -75,6 +75,17 @@ namespace UU.GameHam
             if (!SpendEnergyForAbilityUse())
                 return;
             Debug.Log("LEVEL DESIGNER USED THEIR SPECIAL");
+
+
+            var walls = FindObjectsOfType(typeof(LevelDesignerWallPower)) as LevelDesignerWallPower[];
+            
+            foreach(var wall in walls)
+            {
+                if(wall.team == charStats.team)
+                {
+                    wall.Activate();
+                }
+            }
         }
 
         private void UseProjectManager()

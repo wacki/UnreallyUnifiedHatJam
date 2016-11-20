@@ -44,7 +44,8 @@ namespace UU.GameHam
             //If the object I collide with is a character
             if (cs != null) {
                 //affect player then
-                cs.ApplyModifier(projectileDebuff);
+                if(projectileDebuff != null)
+                    cs.ApplyModifier(projectileDebuff);
                 cs.Damage(damage);
 
                 if (doKnockback)
