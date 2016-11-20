@@ -94,6 +94,12 @@ namespace UU.GameHam
             _currentEnergy = maxEnergy;
         }
 
+        public void AddHealth(int amount)
+        {
+            _currentHealth += amount;
+            _currentHealth = (int)Mathf.Min(_currentHealth, maxHealth);
+        }
+
         /// <summary>
         /// Damage the player
         /// </summary>
@@ -147,6 +153,15 @@ namespace UU.GameHam
         /// <param name="mod"></param>
         public void ApplyModifier(CharacterStatsModifier mod)
         {
+            // if the modifier is an instant effect then just apply it and return
+            // we don't need to track what is happening to it
+            if(mod.type == CharacterStatsModifier.Type.instant)
+            {
+                mod.OnActivate(gameObject);
+                return;
+            }
+
+
             var modInstance = (CharacterStatsModifier)ScriptableObject.CreateInstance(mod.GetType());
             modInstance.Copy(mod);
             Debug.Log(modInstance.duration);

@@ -20,10 +20,9 @@ namespace UU.GameHam
             Grounded,   // moving along the ground
             Walltouch,  // touching a wall while not grounded (wall slide, wall jump etc use this)
             Climbing,    // player is currently holding onto a wall
-            Knockback
-
+            Knockback, 
         };
-
+        
         #region public editor fields
 
         // editable fields
@@ -76,6 +75,15 @@ namespace UU.GameHam
         public float knockBackDuration = 0.5f;
 
         public float knockbackStrength = 4;
+
+        public bool isStunned;
+        private float stunTimer;
+
+        public void Stun(float duration)
+        {
+            isStunned = true;
+            stunTimer = duration;
+        }
 
         #endregion
 
@@ -241,6 +249,17 @@ namespace UU.GameHam
         /// </summary>
         private void Update()
         {
+            if (isStunned)
+            {
+                stunTimer -= Time.deltaTime;
+
+                if(stunTimer <= 0.0f)
+                {
+                    isStunned = false;
+                }
+            }
+
+
             if (state == State.Knockback)
             {
                 _knockbackTimer += Time.deltaTime;
@@ -253,7 +272,9 @@ namespace UU.GameHam
                 return;
             }
 
-            // update any movement
+            if (isStunned)
+                return;
+
             UpdateFacing();
 
             // if we're in a jumping state then see if we need to keep on jumping

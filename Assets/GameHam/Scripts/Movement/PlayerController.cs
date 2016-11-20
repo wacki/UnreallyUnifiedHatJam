@@ -12,6 +12,8 @@ namespace UU.GameHam
 
         public int playerIndex = 0;
 
+        public bool reversControls = false;
+
         private Motor2D _motor;
 		private CombatController _combat;
 
@@ -40,6 +42,12 @@ namespace UU.GameHam
 
 			v = GetAxis("LSY");
 			h = GetAxis("LSX");
+
+            // reverse horizontal controls
+            if(reversControls)
+            {
+                h *= -1;
+            }
 
 			var col = GetComponent<BoxCollider2D>();
 

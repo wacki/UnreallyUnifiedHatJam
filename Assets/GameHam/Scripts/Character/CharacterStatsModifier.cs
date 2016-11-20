@@ -52,10 +52,27 @@ namespace UU.GameHam
     public class SpeedModifier : CharacterStatsModifier
     {
         private float _origVel;
+        private float _origAcc;
         private Motor2D _motor;
+        public bool affectMaxVelocity = true;
+        public float limtedMaxVelocity;
+        public bool affectAcceleration = true;
+        public float limitedAcceleration;
 
         public SpeedModifier(SpeedModifier other)
         {
+        }
+
+        public override void Copy(CharacterStatsModifier other)
+        {
+            base.Copy(other);
+
+            var otherCast = (SpeedModifier)other;
+            affectMaxVelocity = otherCast.affectMaxVelocity;
+            limtedMaxVelocity = otherCast.limtedMaxVelocity;
+            affectAcceleration = otherCast.affectAcceleration;
+            limitedAcceleration = otherCast.limitedAcceleration;
+
         }
 
         public override void OnActivate(GameObject go)
@@ -64,7 +81,16 @@ namespace UU.GameHam
             Debug.Log("Activating Speed Modifier");
             _motor = go.GetComponent<Motor2D>();
             _origVel = _motor.maxVelocity;
-            _motor.maxVelocity = 2.0f;
+            _origAcc = _motor.moveAccel;
+
+            if(affectAcceleration)
+            {
+                _motor.moveAccel = limitedAcceleration;
+            }
+            if(affectMaxVelocity)
+            {
+                _motor.maxVelocity = limtedMaxVelocity;
+            }
         }
 
         public override void OnDeactivate()
@@ -72,6 +98,10 @@ namespace UU.GameHam
             base.OnDeactivate();
             _motor.maxVelocity = _origVel;
             Debug.Log("Speed modifier ran out!");
+
+            _motor.maxVelocity = _origVel;
+            _motor.moveAccel = _origAcc;
+            
         }
     }
 
@@ -80,16 +110,21 @@ namespace UU.GameHam
     [CreateAssetMenu(menuName = "Stats Modifier/Control Reversal")]
     public class ControlReversalModifier : CharacterStatsModifier
     {
+        private PlayerController playerController;
+
         public override void OnActivate(GameObject go)
         {
             base.OnActivate(go);
             Debug.Log("Activating Control Reversal");
+            playerController = go.GetComponent<PlayerController>();
+            playerController.reversControls = true;
         }
 
         public override void OnDeactivate()
         {
             base.OnDeactivate();
             Debug.Log("Control Reversal ran out!");
+            playerController.reversControls = false;
         }
     }
 
@@ -114,10 +149,13 @@ namespace UU.GameHam
     [CreateAssetMenu(menuName = "Stats Modifier/Health")]
     public class HealthModifier : CharacterStatsModifier
     {
+        public int healthAmount;
         public override void OnActivate(GameObject go)
         {
             base.OnActivate(go);
             Debug.Log("Activating Health Modifier");
+            var cs = go.GetComponent<CharacterStats>();
+            cs.AddHealth(healthAmount);
         }
     }
 
@@ -135,16 +173,32 @@ namespace UU.GameHam
     [CreateAssetMenu(menuName = "Stats Modifier/Jump Modifier")]
     public class JumpModifier : CharacterStatsModifier
     {
+        public float modifiedJumpSpeed;
+        private Motor2D motor;
+        private float origJumpSpeed;
+
+        public override void Copy(CharacterStatsModifier other)
+        {
+            base.Copy(other);
+            var otherCast = (JumpModifier)other;
+
+            modifiedJumpSpeed = otherCast.modifiedJumpSpeed;
+        }
+
         public override void OnActivate(GameObject go)
         {
             base.OnActivate(go);
             Debug.Log("Activating Control Reversal");
+            motor = go.GetComponent<Motor2D>();
+            origJumpSpeed = motor.jumpVelocity;
+            motor.jumpVelocity = modifiedJumpSpeed;
         }
 
         public override void OnDeactivate()
         {
             base.OnDeactivate();
             Debug.Log("Control Reversal ran out!");
+            motor.jumpVelocity = origJumpSpeed;
         }
     }
 
@@ -152,17 +206,15 @@ namespace UU.GameHam
     [CreateAssetMenu(menuName = "Stats Modifier/Stun Modifier")]
     public class StunModifier : CharacterStatsModifier
     {
+
         public override void OnActivate(GameObject go)
         {
             base.OnActivate(go);
             Debug.Log("Activating Control Reversal");
+            var motor = go.GetComponent<Motor2D>();
+            motor.Stun(duration);
         }
-
-        public override void OnDeactivate()
-        {
-            base.OnDeactivate();
-            Debug.Log("Control Reversal ran out!");
-        }
+        
     }
 
 }

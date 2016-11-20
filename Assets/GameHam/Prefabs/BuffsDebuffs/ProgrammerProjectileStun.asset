@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: ProgrammerProjectileStun
   m_EditorClassIdentifier: Assembly-CSharp:UU.GameHam:StunModifier
   type: 0
-  duration: 0
+  duration: 10

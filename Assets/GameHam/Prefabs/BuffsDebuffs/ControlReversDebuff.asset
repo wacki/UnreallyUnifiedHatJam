@@ -9,8 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: ArtistProjectileJumpDebuff
-  m_EditorClassIdentifier: Assembly-CSharp:UU.GameHam:JumpModifier
+  m_Name: ControlReversDebuff
+  m_EditorClassIdentifier: Assembly-CSharp:UU.GameHam:ControlReversalModifier
   type: 1
-  duration: 3
-  modifiedJumpSpeed: 2.5
+  duration: 5
