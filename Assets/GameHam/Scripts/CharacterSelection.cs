@@ -24,6 +24,9 @@ namespace UU.GameHam
         public int playerIndex;
         public CharacterSelection otherTeamMember;
 
+		public int redFlags;
+		public int blueFlags;
+
         public Text selectedCharacterText;
         public Image selectedCharacterImage;
 
