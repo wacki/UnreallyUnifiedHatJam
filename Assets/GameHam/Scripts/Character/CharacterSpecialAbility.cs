@@ -42,9 +42,9 @@ namespace UU.GameHam
 
         private void UseArtist()
         {
-            //if (!SpendEnergyForAbilityUse())
-            //    return;
-            
+            if (!SpendEnergyForAbilityUse())
+                return;
+
             var team = charStats.team;
 
             float distance = -1;

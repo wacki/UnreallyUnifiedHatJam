@@ -59,6 +59,7 @@ GameObject:
   - 114: {fileID: 114000012742628726}
   - 95: {fileID: 95000011115366676}
   - 114: {fileID: 114000012200936996}
+  - 114: {fileID: 114000013826872448}
   m_Layer: 11
   m_Name: CharacterArtist
   m_TagString: Untagged
@@ -99,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012773808386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.357035, y: -3.3233402, z: 0}
+  m_LocalPosition: {x: 4.68448, y: -1.5456803, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -251,6 +252,17 @@ MonoBehaviour:
   knockBackDuration: 0.05
   knockbackStrength: 300
   isStunned: 0
+--- !u!114 &114000013826872448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012773808386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24693c8c272b09428b8bdfbd9f26b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000011950053900
 SpriteRenderer:
   m_ObjectHideFlags: 1
