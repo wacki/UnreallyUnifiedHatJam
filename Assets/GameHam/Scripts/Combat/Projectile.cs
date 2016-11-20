@@ -34,6 +34,9 @@ namespace UU.GameHam
 
 		void OnTriggerEnter2D(Collider2D other){
 
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ignore Raycast"))
+                return;
+
             var cs = other.gameObject.GetComponent<CharacterStats>();
             var motor = other.gameObject.GetComponent<Motor2D>();
             //If the object I collide with is a character

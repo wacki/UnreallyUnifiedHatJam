@@ -8,9 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74c0c7dccd807234a8be8e2b6660da6f, type: 3}
-  m_Name: HealthPickup 1
+  m_Script: {fileID: 11500000, guid: c8085e743ac3c2b4aad0e20b00691577, type: 3}
+  m_Name: SpeedBuffPickup
   m_EditorClassIdentifier: 
-  type: 0
-  duration: 0
-  healthAmount: 2
+  type: 1
+  duration: 2
+  affectMaxVelocity: 1
+  limtedMaxVelocity: 10
+  affectAcceleration: 0
+  limitedAcceleration: 60
