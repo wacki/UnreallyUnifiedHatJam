@@ -79,11 +79,15 @@ namespace UU.GameHam
                 transform.GetChild(i).gameObject.layer = layer;
         }
 
-        public void ActivateShield(int shieldAmount, float shieldTimer)
+        public void ActivateShield(int shieldAmount)
         {
-            _isShieldActive = true;
             _currentShield = shieldAmount;
-            _shieldTimer = shieldTimer;
+        }
+
+        public void IncreaseEnergy(int amount)
+        {
+            _currentEnergy += amount;
+            _currentEnergy = Mathf.Min(_currentEnergy, maxEnergy);
         }
 
         public void FillEnergy()
@@ -103,10 +107,14 @@ namespace UU.GameHam
         /// <param name="amount"></param>
         public void Damage(int amount)
         {
-            if (_isShieldActive)
+            if (amount > _currentShield)
+                amount = amount - _currentShield;
+            else
             {
-
-            }
+                _currentShield -= amount;
+                return;
+            }                
+            
 
             _currentHealth -= amount;
             DeathCheck();
@@ -122,6 +130,21 @@ namespace UU.GameHam
 				GetComponentInChildren<FlagManager> ().releaseFlag ();
             StartCoroutine(RespawnCoroutine());
             transform.position = new Vector3(0, -1000, 1);
+        }
+
+        public void ClearModifiers()
+        {
+            foreach(var modifier in _modifiers)
+            {
+                modifier.ForceStop();
+            }
+
+            _modifiers.Clear();
+        }
+
+        public void SpendEnergy()
+        {
+            _currentEnergy = 0;
         }
 
         /// <summary>
@@ -176,6 +199,10 @@ namespace UU.GameHam
             {
                 // refresh existing effect
                 Debug.Log("EFFECT ALREADY PRESENT");
+
+                inList.Refresh();
+
+                
             }
 
         }

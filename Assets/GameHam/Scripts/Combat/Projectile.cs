@@ -15,6 +15,8 @@ namespace UU.GameHam
 
         public int damage = 1;
 
+        public CharacterStats owner;
+
         public bool doKnockback = false;
         public float knockbackForce;
         
@@ -47,6 +49,9 @@ namespace UU.GameHam
 
                 if (doKnockback)
                     motor.KnockBack((transform.right * -speed).normalized * knockbackForce);
+
+                // increase energy for owner
+                owner.IncreaseEnergy(1);
                 
             }
 

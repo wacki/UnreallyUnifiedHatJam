@@ -8,7 +8,6 @@ namespace UU.GameHam
     public class ShieldModifier : CharacterStatsModifier
     {
         public int shieldAmount;
-        public float shieldDuration;
 
         public override void OnActivate(GameObject go)
         {
@@ -17,7 +16,7 @@ namespace UU.GameHam
 
             // activate the shield
             var cs = go.GetComponent<CharacterStats>();
-            cs.ActivateShield(shieldAmount, shieldDuration);
+            cs.ActivateShield(shieldAmount);
         }
     }
 

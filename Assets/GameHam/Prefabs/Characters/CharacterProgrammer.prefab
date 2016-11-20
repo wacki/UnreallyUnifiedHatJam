@@ -41,6 +41,7 @@ GameObject:
   - 114: {fileID: 114000012875309766}
   - 114: {fileID: 114000011607035152}
   - 114: {fileID: 114000012742628726}
+  - 114: {fileID: 114000013078943580}
   m_Layer: 11
   m_Name: CharacterProgrammer
   m_TagString: Untagged
@@ -140,7 +141,6 @@ MonoBehaviour:
   maxEnergy: 5
   respawnTime: 8
   characterType: 1
-  tempTestBuff: {fileID: 11400000, guid: f4f861a6b29863745b1b4a620fea02fc, type: 2}
 --- !u!114 &114000012875309766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +155,7 @@ MonoBehaviour:
   debug: 1
   debugInterval: 0
   playerIndex: 0
+  reversControls: 0
   v: 0
   inPassable: 0
 --- !u!114 &114000012915305434
@@ -185,6 +186,20 @@ MonoBehaviour:
   resetAirJumpsOnWallTouch: 1
   knockBackDuration: 0.05
   knockbackStrength: 300
+  isStunned: 0
+--- !u!114 &114000013078943580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012773808386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a6a920b2f970a41bdc437ac852b57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 11400000, guid: a31a33b9f9a6eba42b53f4452fc2a8b2, type: 2}
+  characterType: 1
 --- !u!212 &212000012997786854
 SpriteRenderer:
   m_ObjectHideFlags: 1

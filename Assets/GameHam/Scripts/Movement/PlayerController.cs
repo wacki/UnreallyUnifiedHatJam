@@ -16,6 +16,7 @@ namespace UU.GameHam
 
         private Motor2D _motor;
 		private CombatController _combat;
+        private CharacterSpecialAbility _specialAbility;
 
 		public float v;
 		private float h;
@@ -31,6 +32,7 @@ namespace UU.GameHam
         {
 			_combat = GetComponent<CombatController>();
 			_motor = GetComponent<Motor2D>();
+            _specialAbility = GetComponent<CharacterSpecialAbility>();
 #if UNITY_EDITOR
             _prevPosition = transform.position;
 #endif
@@ -66,8 +68,13 @@ namespace UU.GameHam
 			if (GetButtonDown ("Button1"))
 				_combat.Shoot ();
 
-			if (GetButtonDown ("Button2"))
-				_combat.Attack ();
+            if (GetButtonDown("Button2"))
+                _combat.Attack();
+
+            if (GetButtonDown("Button3"))
+                _specialAbility.Use();
+
+
 
             _motor.Move(h, v);
 

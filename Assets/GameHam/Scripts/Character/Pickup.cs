@@ -40,6 +40,9 @@ namespace UU.GameHam
             var cs = other.GetComponent<CharacterStats>();
             if (other.GetComponent<CharacterStats>() != null)
             {
+                if (removeDebuffsOnPickup)
+                    cs.ClearModifiers();
+
                 cs.ApplyModifier(pickupEffect);
                 StartCooldown();
             }

@@ -60,6 +60,9 @@ namespace UU.GameHam
                 projectileClone.facingRight = gameObject.GetComponent<Motor2D>().facingRight;
                 rangeCooldownCounter = initialRangeCooldown; //Start cooldown
                                                              //gameObject.GetComponent<AnimationController> ().CallAnimation ("Projectile"); //Call for the animation to attack
+
+
+                projectileClone.owner = GetComponent<CharacterStats>();
             }
         }
 
@@ -93,6 +96,8 @@ namespace UU.GameHam
                     {
                         otherPlayer.Damage(1);
                         otherPlayer.GetComponent<Motor2D>().KnockBack(otherPlayer.transform.position - transform.position);
+                        // increase energy on succesful hit
+                        GetComponent<CharacterStats>().IncreaseEnergy(1);
                     }
                 }
             }

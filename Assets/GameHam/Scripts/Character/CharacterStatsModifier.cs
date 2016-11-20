@@ -39,6 +39,18 @@ namespace UU.GameHam
 
             _timer += Time.deltaTime;
         }
+
+        public void ForceStop()
+        {
+            _isActive = false;
+            OnDeactivate();
+        }
+
+        public void Refresh()
+        {
+            _timer = 0.0f;
+            Debug.Log(" I GOT REFRESHED!");
+        }
         
         public virtual void Copy(CharacterStatsModifier other)
         {

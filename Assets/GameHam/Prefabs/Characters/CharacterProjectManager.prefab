@@ -41,6 +41,7 @@ GameObject:
   - 114: {fileID: 114000012875309766}
   - 114: {fileID: 114000011607035152}
   - 114: {fileID: 114000012742628726}
+  - 114: {fileID: 114000012606032160}
   m_Layer: 11
   m_Name: CharacterProjectManager
   m_TagString: Untagged
@@ -124,6 +125,19 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1000011054595800}
   projectilePrefab: {fileID: 114000013647957728, guid: b3a394efd65aa7743bd4287107cf4848,
     type: 2}
+--- !u!114 &114000012606032160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012773808386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a6a920b2f970a41bdc437ac852b57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 11400000, guid: bb1cfae3302f7de459d2f084d2eb291a, type: 2}
+  characterType: 2
 --- !u!114 &114000012742628726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,8 +153,7 @@ MonoBehaviour:
   maxHealth: 3
   maxEnergy: 5
   respawnTime: 8
-  characterType: 1
-  tempTestBuff: {fileID: 11400000, guid: f4f861a6b29863745b1b4a620fea02fc, type: 2}
+  characterType: 2
 --- !u!114 &114000012875309766
 MonoBehaviour:
   m_ObjectHideFlags: 1
