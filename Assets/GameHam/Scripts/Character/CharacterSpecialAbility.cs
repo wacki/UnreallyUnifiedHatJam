@@ -70,8 +70,6 @@ namespace UU.GameHam
             var ghostInstance = Instantiate(ghostPrefab, transform.position, Quaternion.identity) as ArtistGhostSpecial;
             ghostInstance.target = closestEnemy.gameObject;
 
-            Debug.Log("ARTIST USED THEIR SPECIAL");
-
         }
         private void UseProgrammer()
         {
@@ -89,16 +87,11 @@ namespace UU.GameHam
                 if (enemyCS.team != team)
                     enemyCS.ApplyModifier(effect);
             }
-
-
-            Debug.Log("PROGRAMMER USED THEIR SPECIAL");
         }
         private void UseLevelDesigner()
         {
             if (!SpendEnergyForAbilityUse())
                 return;
-            Debug.Log("LEVEL DESIGNER USED THEIR SPECIAL");
-
 
             var walls = FindObjectsOfType(typeof(LevelDesignerWallPower)) as LevelDesignerWallPower[];
             
