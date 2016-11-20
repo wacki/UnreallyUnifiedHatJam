@@ -15108,6 +15108,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013045208820, guid: a0a3a62970343434d8647311d429e2b3,
+        type: 2}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: a31a33b9f9a6eba42b53f4452fc2a8b2,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0a3a62970343434d8647311d429e2b3, type: 2}
   m_IsPrefabParent: 0

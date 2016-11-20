@@ -32,6 +32,9 @@ namespace UU.GameHam
 
         void OnTriggerEnter2D(Collider2D other)
         {
+            if (onCooldown)
+                return;
+
             var cs = other.GetComponent<CharacterStats>();
             if (other.GetComponent<CharacterStats>() != null)
             {

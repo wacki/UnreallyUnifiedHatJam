@@ -44,8 +44,7 @@ namespace UU.GameHam
 
         // current buffs and debuffs affecting the player
         private List<CharacterStatsModifier> _modifiers = new List<CharacterStatsModifier>();
-
-        public CharacterStatsModifier tempTestBuff;
+        
 
         IEnumerator RespawnCoroutine()
         {
@@ -61,8 +60,6 @@ namespace UU.GameHam
 
         void Awake()
         {
-            // Test buff system temporarily
-            ApplyModifier(tempTestBuff);
             _currentHealth = maxHealth;
             _currentEnergy = maxEnergy;
         }
@@ -213,7 +210,8 @@ namespace UU.GameHam
             _modifiers.RemoveAll(x => toRemove.Contains(x));
             foreach (var mod in toRemove)
             {
-                Destroy(mod);
+                // This might lead to a memory leak but the destory is causing issues
+                //Destroy(mod);
             }
         }
     }
