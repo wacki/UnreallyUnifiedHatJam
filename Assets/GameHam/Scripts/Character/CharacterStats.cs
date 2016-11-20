@@ -21,6 +21,8 @@ namespace UU.GameHam
 
         public CharacterType characterType;
 
+        public SpriteRenderer shieldRenderer;
+
         // current health
         public int currentHealth { get { return _currentHealth; } }
         private int _currentHealth;
@@ -62,6 +64,12 @@ namespace UU.GameHam
         {
             _currentHealth = maxHealth;
             _currentEnergy = maxEnergy;
+            
+        }
+
+        void Start()
+        {
+            shieldRenderer.enabled = false;
         }
 
         public void SetTeam(Teams t)
@@ -210,6 +218,16 @@ namespace UU.GameHam
         void Update()
         {
             UpdateModifiers();
+
+            // check if we should draw our shield
+            if(_currentShield > 0)
+            {
+                shieldRenderer.enabled = true;
+            }
+            else
+            {
+                shieldRenderer.enabled = false;
+            }
 
             // update shield
             if (_isShieldActive)

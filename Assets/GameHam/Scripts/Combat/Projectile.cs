@@ -53,11 +53,14 @@ namespace UU.GameHam
             //If the object I collide with is a character
             if (cs != null) {
                 //affect player then
-                cs.ApplyModifier(projectileDebuff);
+                if(projectileDebuff != null)
+                    cs.ApplyModifier(projectileDebuff);
                 cs.Damage(damage);
 
+                var velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+
                 if (doKnockback)
-                    motor.KnockBack((transform.right * -speed).normalized * knockbackForce);
+                    motor.KnockBack(velocity.normalized * knockbackForce);
 
                 // increase energy for owner
                 owner.IncreaseEnergy(1);

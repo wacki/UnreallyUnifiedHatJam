@@ -11,13 +11,17 @@ namespace UU.GameHam
 		AnimatorStateInfo currentState;
 		private Vector3 initialScale;
 		float playbackTime;
+		private SpriteRenderer sr;
+		private Motor2D motor;
 
 		// Use this for initialization
 		void Start ()
 		{
 			//Get Animation
 			anim = GetComponent<Animator> ();
+			sr = GetComponent<SpriteRenderer> ();
 			initialScale = gameObject.transform.localScale;
+			motor = GetComponent<Motor2D> ();
 		}
 	
 		// Update is called once per frame
@@ -28,9 +32,13 @@ namespace UU.GameHam
 			playbackTime = currentState.normalizedTime % 1;
 
 			if (gameObject.GetComponent<Motor2D> ().facingRight)
-				transform.localScale = new Vector3 (initialScale.x, initialScale.y, initialScale.z);
+				sr.flipX = true;
 			else
-				transform.localScale = new Vector3 (-initialScale.x, initialScale.y, initialScale.z);
+				sr.flipX = false;
+
+			anim.SetFloat ("Speed", Mathf.Abs (motor.getInput));
+			anim.SetBool ("inGround", motor.isGrounded);
+			anim.SetBool ("Attacking", (IsAnimationRunning("Melee") || IsAnimationRunning("Ranged")));
 
 		}
 
