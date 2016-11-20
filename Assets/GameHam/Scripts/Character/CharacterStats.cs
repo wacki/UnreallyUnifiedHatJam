@@ -19,6 +19,8 @@ namespace UU.GameHam
 
         public float respawnTime = 10.0f;
 
+        public CharacterType characterType;
+
         // current health
         public int currentHealth { get { return _currentHealth; } }
         private int _currentHealth;

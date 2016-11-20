@@ -15,6 +15,8 @@ namespace UU.GameHam
         public static GameManager instance { get { return _instance; } }
         private static GameManager _instance = null;
 
+        public CharacterType[] selectedTypes;
+
         public GameObject[] characterInstances { get { return _characterInstances; } }
 
         public GameObject[] characterPrefabs;
@@ -35,19 +37,34 @@ namespace UU.GameHam
             _instance = this;
             DontDestroyOnLoad(gameObject);
 
-            for(int i = 0; i < _characterInstances.Length; i++)
+            //for(int i = 0; i < _characterInstances.Length; i++)
+            //{
+            //    _characterInstances[i] = Instantiate(characterPrefabs[0]);
+            //    _characterInstances[i].GetComponent<PlayerController>().playerIndex = i;
+            //    _characterInstances[i].GetComponent<CharacterStats>().SetTeam((i % 2 == 0) ? Teams.Blue : Teams.Red);
+            //    _characterInstances[i].SetActive(false);
+
+            //}
+        }
+
+        void OnLevelWasLoaded(int level)
+        {
+            for (int i = 0; i < _characterInstances.Length; i++)
             {
-                _characterInstances[i] = Instantiate(characterPrefabs[0]);
+                int prefabIndex = (int)selectedTypes[i];
+
+                _characterInstances[i] = Instantiate(characterPrefabs[prefabIndex]);
                 _characterInstances[i].GetComponent<PlayerController>().playerIndex = i;
-                _characterInstances[i].GetComponent<CharacterStats>().SetTeam((i % 2 == 0) ? Teams.Blue : Teams.Red);
+                _characterInstances[i].GetComponent<CharacterStats>().SetTeam((i <2) ? Teams.Blue : Teams.Red);
                 _characterInstances[i].SetActive(false);
 
             }
+            StartRound();
         }
 
         void Start()
         {
-            StartRound();
+            //StartRound();
         }
 
         public void StartRound()
