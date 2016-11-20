@@ -92,6 +92,7 @@ namespace UU.GameHam
         // getters
         public bool isGrounded { get { return _state == State.Grounded; } }
         public bool facingRight { get { return _facingRight; } }
+		public float getInput { get { return _inputDir.x; } }
         public State state { get { return _state; } }
         public Vector2 velocity { get { return _rb.velocity; } }
         public Vector2 facingDir { get { return ((facingRight) ? transform.right : -transform.right); } }
