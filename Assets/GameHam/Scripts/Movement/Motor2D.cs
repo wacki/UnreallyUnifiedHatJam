@@ -12,6 +12,7 @@ namespace UU.GameHam
     [RequireComponent(typeof(BoxCollider2D), typeof(Rigidbody2D))]
     public class Motor2D : MonoBehaviour
     {
+        public AudioClip jumpSound;
 
         public enum State
         {
@@ -155,6 +156,12 @@ namespace UU.GameHam
             _jumpHoldTimer = 0.0f;
             _jumping = true;
             SetState(State.Jumping);
+
+            // Jump Sound
+            if (jumpSound != null)
+            {
+                AudioManager.instance.PlayOneShot(jumpSound);
+            }
         }
 
         /// <summary>

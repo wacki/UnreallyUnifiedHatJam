@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   effect: No
-  shootSound: {fileID: 8300000, guid: b531a64114f3c7640b8cc843c0987ec9, type: 3}
+  shootSound: {fileID: 8300000, guid: 13ff60a06b276224ab485fe1c48f9752, type: 3}
   hitSound: {fileID: 8300000, guid: 5a7ad0275aba8304baec1dec85702652, type: 3}
   damage: 1
   owner: {fileID: 0}
