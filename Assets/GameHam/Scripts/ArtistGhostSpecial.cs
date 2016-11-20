@@ -30,6 +30,7 @@ namespace UU.GameHam
 
             if (timer > duration)
                 Destroy(gameObject);
+
         }
 
 

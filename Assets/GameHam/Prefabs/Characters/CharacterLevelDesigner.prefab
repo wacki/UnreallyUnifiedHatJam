@@ -532,7 +532,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114000013647957728, guid: 89ca99820fc12e94f99076680b6401b8,
     type: 2}
   hitSound: {fileID: 8300000, guid: 7c98c63586d5ba047b35a1626119eb59, type: 3}
-  missSound: {fileID: 8300000, guid: 7c98c63586d5ba047b35a1626119eb59, type: 3}
+  missSound: {fileID: 8300000, guid: d7b2b868babe11b42a0f9b1ee143e3c0, type: 3}
 --- !u!114 &114000011901249532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -574,7 +574,8 @@ MonoBehaviour:
   effect: {fileID: 0}
   characterType: 3
   ghostPrefab: {fileID: 0}
-  specialActivateSound: {fileID: 0}
+  specialActivateSound: {fileID: 8300000, guid: 244b6fedff6c7f549bda880ba57c59af,
+    type: 3}
 --- !u!114 &114000012188755272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -753,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454071106bbf3f741a38afb038694ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSound: {fileID: 8300000, guid: bd2683fdcbcffa94c87cfcf9d800cf0f, type: 3}
+  jumpSound: {fileID: 8300000, guid: 6b2bee8cbcc920040981c028f089155a, type: 3}
   jumpVelocity: 9
   maxJumpDuration: 0
   maxAirJumps: 0

@@ -140,7 +140,7 @@ namespace UU.GameHam
 
         private void UpdateDisplay()
         {
-            selectedCharacterText.text = _currentSelection.ToString();
+            selectedCharacterText.text = _currentSelection.ToString() + "\n\nROLE: Defense" + "\n\nSPECIAL: Dynamic Level Creation";
             selectedCharacterImage.sprite = characterTypeSprites[(int)_currentSelection];
         }
 

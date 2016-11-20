@@ -510,7 +510,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114000013647957728, guid: b3a394efd65aa7743bd4287107cf4848,
     type: 2}
   hitSound: {fileID: 8300000, guid: 55893e4c05652a045857badd93d7d74b, type: 3}
-  missSound: {fileID: 8300000, guid: 55893e4c05652a045857badd93d7d74b, type: 3}
+  missSound: {fileID: 8300000, guid: 09207d160dff9be4b82627fe031069a9, type: 3}
 --- !u!114 &114000012261138556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454071106bbf3f741a38afb038694ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSound: {fileID: 8300000, guid: bd2683fdcbcffa94c87cfcf9d800cf0f, type: 3}
+  jumpSound: {fileID: 8300000, guid: 74e65c1cbf221e74db6f6d36d92fadae, type: 3}
   jumpVelocity: 9
   maxJumpDuration: 0
   maxAirJumps: 0
