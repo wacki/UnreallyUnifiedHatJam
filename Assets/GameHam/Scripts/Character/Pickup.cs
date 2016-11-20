@@ -12,6 +12,8 @@ namespace UU.GameHam
         private float respawnTimer;
         private SpriteRenderer spriteRenderer;
 
+        public bool removeDebuffsOnPickup = false;
+
         void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
