@@ -14,6 +14,7 @@ namespace UU.GameHam
     {
         public static GameManager instance { get { return _instance; } }
         private static GameManager _instance = null;
+		public bool started = false;
 
         public CharacterType[] selectedTypes;
 
@@ -21,7 +22,7 @@ namespace UU.GameHam
 
         public GameObject[] characterPrefabs;
 
-        private GameObject[] _characterInstances = new GameObject[4];
+        public GameObject[] _characterInstances = new GameObject[4];
 
         private GameObject[] blueTeamSpawnPoints;
         private GameObject[] redTeamSpawnPoints;
@@ -49,7 +50,7 @@ namespace UU.GameHam
 
         void OnLevelWasLoaded(int level)
         {
-            for (int i = 0; i < _characterInstances.Length; i++)
+            /*for (int i = 0; i < _characterInstances.Length; i++)
             {
                 int prefabIndex = (int)selectedTypes[i];
 
@@ -60,6 +61,7 @@ namespace UU.GameHam
 
             }
             StartRound();
+*/
         }
 
         void Start()
@@ -77,11 +79,24 @@ namespace UU.GameHam
 
 			}
 			StartRound();
+			NotifyUI ();
 
         }
 
+		private void NotifyUI()
+		{
+			var ui = GameObject.FindObjectOfType<UI>();
+			for(int i = 0; i < _characterInstances.Length; i++) {
+				ui.players[i] = _characterInstances[i].GetComponent<CharacterStats>();
+			}
+
+			//ui.gameObject.SetActive (true);
+		}
+
+
         public void StartRound()
         {
+			started = true;
             foreach (var player in _characterInstances)
             {
                 player.transform.position = GetEmptySpawnPoint(player.GetComponent<CharacterStats>().team);
