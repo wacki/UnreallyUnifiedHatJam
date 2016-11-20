@@ -607,7 +607,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114000013647957728, guid: 900ed0dff07ad834ab5afc4a7e89d911,
     type: 2}
   hitSound: {fileID: 8300000, guid: 55378a64181c5ff4f9dbb16f0953f154, type: 3}
-  missSound: {fileID: 8300000, guid: 55378a64181c5ff4f9dbb16f0953f154, type: 3}
+  missSound: {fileID: 8300000, guid: 9e77e1659e446e44d978855318aa320c, type: 3}
 --- !u!114 &114000011731081008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -822,6 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454071106bbf3f741a38afb038694ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: bd2683fdcbcffa94c87cfcf9d800cf0f, type: 3}
   jumpVelocity: 9
   maxJumpDuration: 0
   maxAirJumps: 0
@@ -840,6 +841,9 @@ MonoBehaviour:
   knockBackDuration: 0.05
   knockbackStrength: 300
   isStunned: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114000013078943580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -854,6 +858,8 @@ MonoBehaviour:
   effect: {fileID: 11400000, guid: a31a33b9f9a6eba42b53f4452fc2a8b2, type: 2}
   characterType: 1
   ghostPrefab: {fileID: 0}
+  specialActivateSound: {fileID: 8300000, guid: 6641f64ea296d8d4b94eaba0bca23769,
+    type: 3}
 --- !u!114 &114000013532060386
 MonoBehaviour:
   m_ObjectHideFlags: 1

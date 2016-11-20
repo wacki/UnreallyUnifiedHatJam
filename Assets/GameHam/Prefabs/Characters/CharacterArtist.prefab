@@ -312,7 +312,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011054595800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.024, z: 0}
+  m_LocalPosition: {x: 0, y: 0.528, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -685,6 +685,8 @@ MonoBehaviour:
   characterType: 0
   ghostPrefab: {fileID: 114000011377304094, guid: 2645c00a004dbff4ab11af48837efe23,
     type: 2}
+  specialActivateSound: {fileID: 8300000, guid: 73dd1ab9eb5c1cf40ad05fd84c97fb52,
+    type: 3}
 --- !u!114 &114000012742628726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -757,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454071106bbf3f741a38afb038694ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: bd2683fdcbcffa94c87cfcf9d800cf0f, type: 3}
   jumpVelocity: 9
   maxJumpDuration: 0
   maxAirJumps: 0
@@ -775,6 +778,9 @@ MonoBehaviour:
   knockBackDuration: 0.05
   knockbackStrength: 300
   isStunned: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114000013141490686
 MonoBehaviour:
   m_ObjectHideFlags: 1

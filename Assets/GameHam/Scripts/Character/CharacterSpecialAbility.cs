@@ -10,6 +10,9 @@ namespace UU.GameHam
         public CharacterType characterType;
         public ArtistGhostSpecial ghostPrefab;
 
+
+        public AudioClip specialActivateSound;
+
         private float cooldownTimer;
         private CharacterStats charStats;
 
@@ -20,12 +23,12 @@ namespace UU.GameHam
 
         public virtual void Use()
         {
-            switch(characterType)
+            switch (characterType)
             {
-                case CharacterType.Artist: UseArtist();  return;
-                case CharacterType.Programmer: UseProgrammer();  return;
-                case CharacterType.LevelDesigner: UseLevelDesigner();  return;
-                case CharacterType.ProjectManager: UseProjectManager();  return;
+                case CharacterType.Artist: UseArtist(); return;
+                case CharacterType.Programmer: UseProgrammer(); return;
+                case CharacterType.LevelDesigner: UseLevelDesigner(); return;
+                case CharacterType.ProjectManager: UseProjectManager(); return;
             }
 
         }
@@ -36,6 +39,12 @@ namespace UU.GameHam
                 return false;
 
             charStats.SpendEnergy();
+
+
+            if (specialActivateSound != null)
+                AudioManager.instance.PlayOneShot(specialActivateSound);
+
+
             return true;
 
         }
@@ -46,6 +55,7 @@ namespace UU.GameHam
                 return;
 
             var team = charStats.team;
+            
 
             float distance = -1;
             CharacterStats closestEnemy = null;
@@ -79,6 +89,8 @@ namespace UU.GameHam
             if (effect == null)
                 return;
 
+            
+
             var team = charStats.team;
 
             foreach (var player in GameManager.instance.characterInstances)
@@ -93,11 +105,13 @@ namespace UU.GameHam
             if (!SpendEnergyForAbilityUse())
                 return;
 
-            var walls = FindObjectsOfType(typeof(LevelDesignerWallPower)) as LevelDesignerWallPower[];
             
-            foreach(var wall in walls)
+
+            var walls = FindObjectsOfType(typeof(LevelDesignerWallPower)) as LevelDesignerWallPower[];
+
+            foreach (var wall in walls)
             {
-                if(wall.team == charStats.team)
+                if (wall.team == charStats.team)
                 {
                     wall.Activate();
                 }
@@ -111,10 +125,11 @@ namespace UU.GameHam
 
             if (effect == null)
                 return;
+            
 
             var team = charStats.team;
 
-            foreach(var player in GameManager.instance.characterInstances)
+            foreach (var player in GameManager.instance.characterInstances)
             {
                 var teamMateCS = player.GetComponent<CharacterStats>();
                 if (teamMateCS.team == team)

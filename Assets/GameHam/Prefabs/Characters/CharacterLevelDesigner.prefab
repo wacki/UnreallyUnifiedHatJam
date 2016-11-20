@@ -574,6 +574,7 @@ MonoBehaviour:
   effect: {fileID: 0}
   characterType: 3
   ghostPrefab: {fileID: 0}
+  specialActivateSound: {fileID: 0}
 --- !u!114 &114000012188755272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -752,6 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454071106bbf3f741a38afb038694ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: bd2683fdcbcffa94c87cfcf9d800cf0f, type: 3}
   jumpVelocity: 9
   maxJumpDuration: 0
   maxAirJumps: 0

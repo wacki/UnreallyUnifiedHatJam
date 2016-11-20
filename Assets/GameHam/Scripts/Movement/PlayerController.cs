@@ -14,6 +14,7 @@ namespace UU.GameHam
 
         public bool reversControls = false;
 
+
         private Motor2D _motor;
 		private CombatController _combat;
         private CharacterSpecialAbility _specialAbility;
