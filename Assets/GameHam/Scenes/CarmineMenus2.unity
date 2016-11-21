@@ -260,9 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe670670521ff9a4b87cf39d1330c0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  superText: {fileID: 1655193067}
-  gameText: {fileID: 607246028}
-  brawlText: {fileID: 1081164924}
+  superText: {fileID: 91500861}
+  gameText: {fileID: 91500861}
+  brawlText: {fileID: 91500861}
   music: {fileID: 1534867565}
   startButton: {fileID: 850975466}
   exitButton: {fileID: 1720207770}
@@ -507,6 +507,7 @@ GameObject:
   - 224: {fileID: 607246029}
   - 222: {fileID: 607246031}
   - 114: {fileID: 607246030}
+  - 114: {fileID: 607246032}
   m_Layer: 5
   m_Name: gameText
   m_TagString: Untagged
@@ -565,6 +566,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607246028}
+--- !u!114 &607246032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607246028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d65b97245abe942b2b3f70f172090b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1.8
 --- !u!1 &687217293
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +784,7 @@ GameObject:
   - 224: {fileID: 1081164925}
   - 222: {fileID: 1081164927}
   - 114: {fileID: 1081164926}
+  - 114: {fileID: 1081164928}
   m_Layer: 5
   m_Name: brawlText
   m_TagString: Untagged
@@ -829,6 +843,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081164924}
+--- !u!114 &1081164928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1081164924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d65b97245abe942b2b3f70f172090b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 2.5
 --- !u!1 &1497614049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1121,7 @@ GameObject:
   - 224: {fileID: 1655193068}
   - 222: {fileID: 1655193070}
   - 114: {fileID: 1655193069}
+  - 114: {fileID: 1655193071}
   m_Layer: 5
   m_Name: superText
   m_TagString: Untagged
@@ -1153,6 +1180,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1655193067}
+--- !u!114 &1655193071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1655193067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d65b97245abe942b2b3f70f172090b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1.2
 --- !u!1 &1720207770
 GameObject:
   m_ObjectHideFlags: 0

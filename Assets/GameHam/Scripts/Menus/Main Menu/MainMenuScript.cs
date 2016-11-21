@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class MainMenuScript : MonoBehaviour {
 
     //These are for the Text Objects
@@ -12,6 +13,9 @@ public class MainMenuScript : MonoBehaviour {
     public GameObject startButton;
     public GameObject exitButton;
 
+    public AudioClip superGameBrawlAudioClip;
+    public GameObject superGameBrawlAudioSourceObject;
+
     public int titleCounter = 0;
     private float timer = 0.0f;
 
@@ -20,6 +24,9 @@ public class MainMenuScript : MonoBehaviour {
     public float gameTextTime = 2.0f;
     public float buttonFadeInTime = 4.0f;
     private bool done = false;
+    private bool firstUpdate = true;
+
+    public Text timertext;
 
     // Use this for initialization
     void Start ()
@@ -27,16 +34,26 @@ public class MainMenuScript : MonoBehaviour {
         
         Cursor.lockState = CursorLockMode.None;
         timer = 0.0f;
+        //superGameBrawlAudioSourceObject.SetActive(true);
+        brawlText.GetComponent<CanvasRenderer>().SetAlpha(0);
+        gameText.GetComponent<CanvasRenderer>().SetAlpha(0);
+        superText.GetComponent<CanvasRenderer>().SetAlpha(0);
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //if (done)
-            //return;
+        if (Time.time < 1.0f)
+            return;
 
-        //Counter to keep track of time
-        titleCounter++;
+        if (done)
+            return;
+        
+        if(firstUpdate)
+        {
+            firstUpdate = false;
+            GetComponent<AudioSource>().PlayOneShot(superGameBrawlAudioClip);
+        }
 
 
         ////Make the text object visable if the time starts
@@ -65,31 +82,33 @@ public class MainMenuScript : MonoBehaviour {
         //}
 
         timer += Time.deltaTime;
+        //timertext.text = timer.ToString();
 
-        if(timer > buttonFadeInTime)
+        if (timer > buttonFadeInTime)
         {
             startButton.SetActive(true);
             exitButton.SetActive(true);
+            //exitButton.GetComponent<CanvasRenderer>().SetAlpha(1);
             //music.GetComponent<AudioSource>().Play();
             music.SetActive(true);
+            done = true;
         }
         else if (timer > gameTextTime)
         {
-
-            brawlText.SetActive(true);
+            brawlText.GetComponent<CanvasRenderer>().SetAlpha(1);
+            //brawlText.SetActive(true);
         }
         else if (timer > brawlTextTime)
         {
-            gameText.SetActive(true);
+            gameText.GetComponent<CanvasRenderer>().SetAlpha(1);
+            //gameText.SetActive(true);
         }
         else if (timer > superTextTime)
         {
-            superText.SetActive(true);
+            superText.GetComponent<CanvasRenderer>().SetAlpha(1);
+            //superText.SetActive(true);
         }
-        else if(superText.gameObject.activeSelf)
-        {
-            done = true;
-        }
+        
 
     }
     public void StartGame()
