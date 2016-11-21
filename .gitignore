@@ -24,3 +24,5 @@ UnityVS.meta
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+*.orig
