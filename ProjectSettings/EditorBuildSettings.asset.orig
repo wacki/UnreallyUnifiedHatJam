@@ -6,16 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
     path: Assets/GameHam/Scenes/CarmineMenus.unity
   - enabled: 1
     path: Assets/GameHam/Scenes/gym_map 1.unity
   - enabled: 1
     path: Assets/GameHam/Scenes/gym_map.unity
   - enabled: 1
-    path: Assets/GameHam/Scenes/CharacterSelect.unity
+    path: Assets/GameHam/Scenes/TEST 2.unity
+  - enabled: 1
+    path: Assets/GameHam/Scenes/Character select TEST 2.unity
+  - enabled: 1
+    path: Assets/GameHam/Scenes/MARC_CHARACTER_SELECT.unity
+  - enabled: 1
+    path: Assets/GameHam/Scenes/MARC_TEST_MAP.unity
+  - enabled: 1
+<<<<<<< HEAD
+    path: Assets/GameHam/Scenes/Character select TEST 3.unity
+  - enabled: 1
+    path: Assets/GameHam/Scenes/VictoryScreen.unity
+  - enabled: 1
+    path: Assets/GameHam/Scenes/Credits.unity
 =======
     path: Assets/GameHam/Scenes/Character select.unity
-  - enabled: 1
-    path: Assets/GameHam/Scenes/gym_map_marc.unity
->>>>>>> 5b7fe68a0d2a7d37ef49875fe1b5c7b0ef095724
+>>>>>>> b27857dfec05411ed3e502421cc797966db04610

@@ -625,8 +625,10 @@ MonoBehaviour:
   - {fileID: 0}
   redFlags: 0
   blueFlags: 0
+  goal: 3
   matchClip: {fileID: 0}
   gameSceneName: gym_map 1
+  endGameScene: VictoryScreen
 --- !u!4 &705603865
 Transform:
   m_ObjectHideFlags: 0
