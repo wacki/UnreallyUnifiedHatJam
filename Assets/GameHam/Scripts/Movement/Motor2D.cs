@@ -113,6 +113,8 @@ namespace UU.GameHam
         {
             SetState(State.Knockback);
             _knockbackDir = dir.normalized;
+            _knockbackDir.y = 0.1f;
+            _knockbackDir.Normalize();
         }
 
         /// <summary>
