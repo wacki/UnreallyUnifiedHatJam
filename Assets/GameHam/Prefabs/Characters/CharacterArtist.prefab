@@ -325,7 +325,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012773808386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.452, y: 0, z: 0}
+  m_LocalPosition: {x: 4.4707756, y: -2.5824995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -431,7 +431,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ea360bc7b36ae68499f5d77ccef72660, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef5894e02084e454c9016c0d62cc1149, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -619,7 +619,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ea360bc7b36ae68499f5d77ccef72660, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 992fdf88a0871d443862260a921d24bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -776,7 +776,7 @@ MonoBehaviour:
   numGroundCheckRays: 3
   resetAirJumpsOnWallTouch: 1
   knockBackDuration: 0.05
-  knockbackStrength: 300
+  knockbackStrength: 400
   isStunned: 0
   _layerMask:
     serializedVersion: 2

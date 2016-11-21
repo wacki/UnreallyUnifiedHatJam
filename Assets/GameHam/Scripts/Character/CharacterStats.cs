@@ -65,7 +65,8 @@ namespace UU.GameHam
         void Awake()
         {
             _currentHealth = maxHealth;
-            _currentEnergy = maxEnergy;
+            _currentEnergy = 0;
+            _currentShield = 0;
             
         }
 

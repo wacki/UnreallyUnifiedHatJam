@@ -40,7 +40,10 @@ namespace UU.GameHam
 
             charStats.SpendEnergy();
 
-
+			var animController = gameObject.GetComponent<AnimationController>();
+			if(animController != null)
+				animController.CallAnimation ("Special"); //Call for the animation to attack
+			
             if (specialActivateSound != null)
                 AudioManager.instance.PlayOneShot(specialActivateSound);
 
