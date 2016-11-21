@@ -68,7 +68,7 @@ namespace UU.GameHam
             yield return null;
         }
 
-		public void YOLO()
+		public void ForceStart()
 		{
 			StartCoroutine(GameStartCountDown());
 		}
