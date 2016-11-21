@@ -74,6 +74,8 @@ MonoBehaviour:
   dampenFactor: 5
   duration: 5
   acceleration: 20
+  redTint: {r: 1, g: 0.45588237, b: 0.45588237, a: 1}
+  blueTint: {r: 0.49264705, g: 0.49264705, b: 1, a: 1}
 --- !u!212 &212000013743200318
 SpriteRenderer:
   m_ObjectHideFlags: 1

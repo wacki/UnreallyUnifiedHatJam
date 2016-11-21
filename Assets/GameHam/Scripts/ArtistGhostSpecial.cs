@@ -13,6 +13,9 @@ namespace UU.GameHam
         public int duration;
         public float acceleration;
 
+        public Color redTint = Color.red;
+        public Color blueTint = Color.blue;
+
         private Vector2 _velocity;
         private float timer;
 
@@ -29,6 +32,24 @@ namespace UU.GameHam
             transform.position += (Vector3)_velocity * Time.deltaTime;
 
             var targetCs = target.GetComponent<CharacterStats>();
+
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+            if (targetCs.team == Teams.Red)
+            {
+                spriteRenderer.color = blueTint;
+
+            }
+            else
+            {
+
+                spriteRenderer.color = redTint;
+            }
+
+            if (_velocity.x > 0)
+                spriteRenderer.flipX = true;
+            else if(_velocity.x < 0)
+                spriteRenderer.flipX = false;
+
             if (!targetCs.isAlive)
             {
                 Destroy(gameObject);

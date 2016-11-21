@@ -708,7 +708,7 @@ MonoBehaviour:
   numGroundCheckRays: 3
   resetAirJumpsOnWallTouch: 1
   knockBackDuration: 0.05
-  knockbackStrength: 300
+  knockbackStrength: 400
   isStunned: 0
   _layerMask:
     serializedVersion: 2
