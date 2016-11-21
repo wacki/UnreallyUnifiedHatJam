@@ -70,7 +70,7 @@ MonoBehaviour:
   target: {fileID: 0}
   debuff: {fileID: 0}
   damageAmount: 2
-  instaKill: 1
+  instaKill: 0
   dampenFactor: 5
   duration: 5
   acceleration: 20
