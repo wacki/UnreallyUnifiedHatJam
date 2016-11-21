@@ -68,6 +68,11 @@ namespace UU.GameHam
             yield return null;
         }
 
+		public void YOLO()
+		{
+			StartCoroutine(GameStartCountDown());
+		}
+
         void StartGame()
         {
             Debug.Log("START GAME!");

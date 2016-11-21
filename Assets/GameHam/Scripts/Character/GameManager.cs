@@ -31,9 +31,12 @@ namespace UU.GameHam
 		public float redFlags = 0;
 		public float blueFlags = 0;
 
+		public float goal = 3;
+
         public AudioClip matchClip;
 
         public string gameSceneName;
+		public string endGameScene;
 
         void Awake()
         {
@@ -123,11 +126,25 @@ namespace UU.GameHam
 		public void gainFlagPoint(Teams t){
 			if (t == Teams.Red) {
 				redFlags++;
+				if(redFlags < goal)
 				SceneManager.LoadScene (gameSceneName);
+				else
+					SceneManager.LoadScene (endGameScene);
 			} else {
 				blueFlags++;
+				if(blueFlags < goal)
 				SceneManager.LoadScene (gameSceneName);
+				else
+					SceneManager.LoadScene (endGameScene);
 			}
+		}
+
+		public bool redWon()
+		{
+			if (redFlags == goal)
+				return true;
+			else
+				return false;
 		}
         
 
