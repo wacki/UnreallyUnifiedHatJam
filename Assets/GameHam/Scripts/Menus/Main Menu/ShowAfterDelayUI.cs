@@ -8,6 +8,7 @@ namespace UU.GameHam
     public class ShowAfterDelayUI : MonoBehaviour
     {
         CanvasRenderer cr;
+
         public float delay;
 
         void Awake()
@@ -15,6 +16,7 @@ namespace UU.GameHam
             cr = GetComponent<CanvasRenderer>();
             Show(false);
             StartCoroutine(ShowCoroutine());
+            
         }
       
         IEnumerator ShowCoroutine()
@@ -41,6 +43,7 @@ namespace UU.GameHam
         private void Show(bool show)
         {
                 cr.SetAlpha((show) ? 1 : 0);
+            Canvas.ForceUpdateCanvases();
         }
     }
 
